@@ -91,6 +91,13 @@
 			path = Movies;
 			sourceTree = "<group>";
 		};
+		441B99A81E8C59C800C1E831 /* MovieDetails */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MovieDetails;
+			sourceTree = "<group>";
+		};
 		8463B8151E87D2520050121A = {
 			isa = PBXGroup;
 			children = (
@@ -125,6 +132,7 @@
 		8463B8331E87D34F0050121A /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				441B99A81E8C59C800C1E831 /* MovieDetails */,
 				441B999D1E8BE0D000C1E831 /* Movies */,
 				8463B8431E87DCAB0050121A /* Subviews */,
 				8463B8231E87D2520050121A /* MoviesTVC.swift */,
