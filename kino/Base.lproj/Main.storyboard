@@ -27,13 +27,13 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uo2-4F-Zge">
-                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="281.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="188" height="282"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="Uo2-4F-Zge" secondAttribute="height" multiplier="2:3" id="8Gc-SJ-4b2"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b3G-L3-Agu">
-                                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="281.5"/>
+                                            <rect key="frame" x="188" y="0.0" width="187" height="282"/>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -145,6 +145,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="PCK-PC-0i3"/>
                     <connections>
+                        <outlet property="segmentedCotrlView" destination="bb4-Ce-Erl" id="vRM-jo-fki"/>
                         <outlet property="toolbarView" destination="rYW-Yk-Co8" id="kc2-XF-vjh"/>
                     </connections>
                 </viewController>
