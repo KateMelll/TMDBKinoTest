@@ -52,7 +52,7 @@ class MoviesCollectionViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionViewDelegate
-
+    
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
