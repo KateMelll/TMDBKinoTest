@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  kino
+
+  Created by KODE_H6 on 29.03.17.
+  Copyright © 2017 Admin. All rights reserved.
+*/
+
+// MARK: MoviesTVC
+"movies.nav.title" = "Movies"; // Заголовок контроллера списка фильмов
