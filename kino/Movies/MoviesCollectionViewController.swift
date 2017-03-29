@@ -39,7 +39,7 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     func request(for mode: Mode) -> MTBaseRequest {
         switch mode {
         case .Popular:
-            return MTMoviesRequest()
+            return MTPopularRequest()
         case .Upcoming:
             return MTUpcomingRequest()
         default:

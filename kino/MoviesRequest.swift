@@ -17,10 +17,21 @@ class MTMoviesRequest: MTBaseRequest {
     }
 }
 
+class MTPopularRequest: MTBaseRequest {
+    
+    override func url() -> String {
+        return "movie/popular"
+    }
+    
+    init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+        super.init(parametes: params)
+    }
+}
+
 class MTUpcomingRequest: MTBaseRequest {
     
     override func url() -> String {
-        return "discover/movie"
+        return "movie/upcoming"
     }
     
     init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
@@ -31,7 +42,7 @@ class MTUpcomingRequest: MTBaseRequest {
 class MTTopRequest: MTBaseRequest {
     
     override func url() -> String {
-        return "discover/movie"
+        return "movie/top_rated"
     }
     
     init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
