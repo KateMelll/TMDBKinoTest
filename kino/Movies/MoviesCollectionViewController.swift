@@ -15,16 +15,17 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     var movies = [MTMovie]()
     var refreshControl: UIRefreshControl!
     weak var moviesViewController: MoviesViewController!
+    var mode: Mode!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.loadMovies()
         self.refreshControl = UIRefreshControl()
         self.refreshControl.addTarget(self, action: #selector(self.loadMovies), for: .valueChanged)
         self.collectionView!.addSubview(self.refreshControl)
     }
 
     func loadMovies() {
+        // ..
         let request =  MTMoviesRequest()
         MTNetwork.makeRequest(request: request) { (response: MTMoviesResponse?, error: Error?) in
             if let response = response {

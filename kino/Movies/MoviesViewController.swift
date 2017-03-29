@@ -18,20 +18,34 @@ class MoviesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.updateTitle()
+        self.updateMode()
         self.segmentedCotrlView.addTarget(self, action: #selector(self.segmentChanged), for: .valueChanged)
     }
 
     func segmentChanged(sender: UISegmentedControl) {
         self.updateTitle()
+        self.updateMode()
     }
 
     func updateTitle() {
         self.navigationItem.title = self.segmentedCotrlView.titleForSegment(at: self.segmentedCotrlView.selectedSegmentIndex)
     }
     
-//    func setMode(_ index: Int) {
-//        
-//    }
+    func updateMode() {
+        self.collectionViewController.mode = self.mode(for: self.segmentedCotrlView.selectedSegmentIndex)
+        self.collectionViewController.loadMovies()
+    }
+    
+    func mode(for index: Int) -> Mode {
+        switch index {
+        case 0:
+            return .Popular
+        case 1:
+            return .Soon
+        default:
+            return .Top
+        }
+    }
     
     // MARK: - Navigation
 
