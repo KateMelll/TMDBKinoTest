@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2t9-ic-a11">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="2t9-ic-a11">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -59,7 +59,13 @@
                             <outlet property="delegate" destination="zGo-HS-P8T" id="b1Y-Vl-SpW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="je8-nf-8jq"/>
+                    <navigationItem key="navigationItem" id="je8-nf-8jq">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="KhT-9e-dVx">
+                            <connections>
+                                <segue destination="Odv-Sv-2eO" kind="show" id="bYo-zn-gmz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sO-V8-faa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,9 +76,15 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2t9-ic-a11" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ELC-5V-mlR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="ELC-5V-mlR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="hidesShadow" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -82,6 +94,111 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OW3-3A-Orl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="245.59999999999999" y="5.8470764617691158"/>
+        </scene>
+        <!--Movies-->
+        <scene sceneID="1wq-8C-F1o">
+            <objects>
+                <viewController id="Odv-Sv-2eO" customClass="MoviesViewController" customModule="kino" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cUy-E8-ehI"/>
+                        <viewControllerLayoutGuide type="bottom" id="5HK-2N-5h9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TMk-Fw-ZpC">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhV-sf-tMd">
+                                <rect key="frame" x="0.0" y="44" width="375" height="559"/>
+                                <connections>
+                                    <segue destination="wXQ-LM-PLL" kind="embed" id="hbd-Sh-vjT"/>
+                                </connections>
+                            </containerView>
+                            <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYW-Yk-Co8" customClass="MoviesToolbar" customModule="kino" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="3IV-Sj-4ZE"/>
+                                    <barButtonItem style="plain" id="gtl-Hw-7rl">
+                                        <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="bb4-Ce-Erl">
+                                            <rect key="frame" x="33" y="7" width="308" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Популярные"/>
+                                                <segment title="Ожидаемые"/>
+                                                <segment title="ТОП-10"/>
+                                            </segments>
+                                        </segmentedControl>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="nN5-IC-Rxo"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rYW-Yk-Co8" firstAttribute="top" secondItem="cUy-E8-ehI" secondAttribute="bottom" id="OwQ-3K-3zm"/>
+                            <constraint firstItem="rhV-sf-tMd" firstAttribute="top" secondItem="rYW-Yk-Co8" secondAttribute="bottom" id="PJ1-YP-KvY"/>
+                            <constraint firstAttribute="trailing" secondItem="rYW-Yk-Co8" secondAttribute="trailing" id="as8-Bl-jEb"/>
+                            <constraint firstItem="rhV-sf-tMd" firstAttribute="bottom" secondItem="5HK-2N-5h9" secondAttribute="top" id="dsW-pa-hZ0"/>
+                            <constraint firstItem="rYW-Yk-Co8" firstAttribute="leading" secondItem="rhV-sf-tMd" secondAttribute="leading" id="loD-bg-NMP"/>
+                            <constraint firstItem="rYW-Yk-Co8" firstAttribute="trailing" secondItem="rhV-sf-tMd" secondAttribute="trailing" id="ufP-yo-EYP"/>
+                            <constraint firstItem="rYW-Yk-Co8" firstAttribute="leading" secondItem="TMk-Fw-ZpC" secondAttribute="leading" id="zyU-CE-0fn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Movies" id="PCK-PC-0i3"/>
+                    <connections>
+                        <outlet property="toolbarView" destination="rYW-Yk-Co8" id="kc2-XF-vjh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZOz-kd-apT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1184.8" y="745.27736131934034"/>
+        </scene>
+        <!--Movies Collection View Controller-->
+        <scene sceneID="EiY-QE-naX">
+            <objects>
+                <collectionViewController id="wXQ-LM-PLL" customClass="MoviesCollectionViewController" customModule="kino" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qYE-Ap-aqC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="3DX-Dg-wIf">
+                            <size key="itemSize" width="20" height="20"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoviesCollectionViewCell" id="4TV-gz-cPH" customClass="MoviesCollectionViewCell" customModule="kino" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BUo-NO-ivK">
+                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="BUo-NO-ivK" firstAttribute="top" secondItem="4TV-gz-cPH" secondAttribute="top" id="Hph-J1-qes"/>
+                                    <constraint firstItem="BUo-NO-ivK" firstAttribute="leading" secondItem="4TV-gz-cPH" secondAttribute="leading" id="Ke7-v9-8pX"/>
+                                    <constraint firstAttribute="trailing" secondItem="BUo-NO-ivK" secondAttribute="trailing" id="Qkl-Hn-sJv"/>
+                                    <constraint firstAttribute="bottom" secondItem="BUo-NO-ivK" secondAttribute="bottom" id="X1c-c4-9fo"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="posterImageView" destination="BUo-NO-ivK" id="XnU-sq-hy4"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="wXQ-LM-PLL" id="Zcn-Mf-q1i"/>
+                            <outlet property="delegate" destination="wXQ-LM-PLL" id="Uf9-hr-xSi"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZTg-Kn-R60" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2014" y="745"/>
         </scene>
     </scenes>
 </document>

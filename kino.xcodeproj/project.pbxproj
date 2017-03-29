@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3F3BA8D70677F65EE6A26B09 /* Pods_kino.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 678DACE98E7ABE4092E18051 /* Pods_kino.framework */; };
+		441B999F1E8BE10300C1E831 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B999E1E8BE10300C1E831 /* MoviesViewController.swift */; };
+		441B99A11E8BE11C00C1E831 /* MoviesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B99A01E8BE11C00C1E831 /* MoviesCollectionViewController.swift */; };
+		441B99A31E8BE13800C1E831 /* MoviesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B99A21E8BE13800C1E831 /* MoviesCollectionViewCell.swift */; };
+		441B99A51E8BE81100C1E831 /* MoviesToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441B99A41E8BE81100C1E831 /* MoviesToolbar.swift */; };
 		8463B8221E87D2520050121A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B8211E87D2520050121A /* AppDelegate.swift */; };
 		8463B8241E87D2520050121A /* MoviesTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B8231E87D2520050121A /* MoviesTVC.swift */; };
 		8463B8271E87D2520050121A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8463B8251E87D2520050121A /* Main.storyboard */; };
@@ -29,6 +33,10 @@
 /* Begin PBXFileReference section */
 		0CD16E36C310022ED54547CC /* Pods-kino.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kino.debug.xcconfig"; path = "Pods/Target Support Files/Pods-kino/Pods-kino.debug.xcconfig"; sourceTree = "<group>"; };
 		21F88830796604AE4AF20394 /* Pods-kino.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-kino.release.xcconfig"; path = "Pods/Target Support Files/Pods-kino/Pods-kino.release.xcconfig"; sourceTree = "<group>"; };
+		441B999E1E8BE10300C1E831 /* MoviesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		441B99A01E8BE11C00C1E831 /* MoviesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewController.swift; sourceTree = "<group>"; };
+		441B99A21E8BE13800C1E831 /* MoviesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesCollectionViewCell.swift; sourceTree = "<group>"; };
+		441B99A41E8BE81100C1E831 /* MoviesToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesToolbar.swift; sourceTree = "<group>"; };
 		678DACE98E7ABE4092E18051 /* Pods_kino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8463B81E1E87D2520050121A /* kino.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kino.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8463B8211E87D2520050121A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +78,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		441B999D1E8BE0D000C1E831 /* Movies */ = {
+			isa = PBXGroup;
+			children = (
+				441B999E1E8BE10300C1E831 /* MoviesViewController.swift */,
+				441B99A01E8BE11C00C1E831 /* MoviesCollectionViewController.swift */,
+				441B99A21E8BE13800C1E831 /* MoviesCollectionViewCell.swift */,
+				441B99A41E8BE81100C1E831 /* MoviesToolbar.swift */,
+			);
+			path = Movies;
+			sourceTree = "<group>";
+		};
 		8463B8151E87D2520050121A = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +123,7 @@
 		8463B8331E87D34F0050121A /* Movies */ = {
 			isa = PBXGroup;
 			children = (
+				441B999D1E8BE0D000C1E831 /* Movies */,
 				8463B8431E87DCAB0050121A /* Subviews */,
 				8463B8231E87D2520050121A /* MoviesTVC.swift */,
 				8463B8341E87D3650050121A /* MoviesTVC+Table.swift */,
@@ -294,13 +314,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				8463B83A1E87D63A0050121A /* Network.swift in Sources */,
+				441B99A11E8BE11C00C1E831 /* MoviesCollectionViewController.swift in Sources */,
 				8463B8401E87D78D0050121A /* MoviesSearchResult.swift in Sources */,
 				8463B8241E87D2520050121A /* MoviesTVC.swift in Sources */,
+				441B99A51E8BE81100C1E831 /* MoviesToolbar.swift in Sources */,
 				8463B83E1E87D78D0050121A /* MoviesRequest.swift in Sources */,
 				C5FA8CD31E8BAB730052ABDB /* String+Tools.swift in Sources */,
 				8463B8421E87DC050050121A /* MoviesTVC+Presenter.swift in Sources */,
 				8463B83C1E87D68C0050121A /* BaseRequest.swift in Sources */,
 				8463B8351E87D3650050121A /* MoviesTVC+Table.swift in Sources */,
+				441B99A31E8BE13800C1E831 /* MoviesCollectionViewCell.swift in Sources */,
+				441B999F1E8BE10300C1E831 /* MoviesViewController.swift in Sources */,
 				8463B8461E87DCCC0050121A /* KDMoviesTVCCell.swift in Sources */,
 				8463B8221E87D2520050121A /* AppDelegate.swift in Sources */,
 				C5FA8CD01E8BA55E0052ABDB /* Movie.swift in Sources */,
