@@ -289,7 +289,6 @@ public struct CircleFilter: ImageFilter {
 #if os(iOS) || os(tvOS)
 
 /// The `CoreImageFilter` protocol defines `parameters`, `filterName` properties used by CoreImage.
-@available(iOS 9.0, *)
 public protocol CoreImageFilter: ImageFilter {
     /// The filter name of the CoreImage filter.
 	var filterName: String { get }
@@ -298,7 +297,6 @@ public protocol CoreImageFilter: ImageFilter {
     var parameters: [String: Any] { get }
 }
 
-@available(iOS 9.0, *)
 public extension ImageFilter where Self: CoreImageFilter {
 	/// The filter closure used to create the modified representation of the given image.
 	public var filter: (Image) -> Image {
@@ -312,7 +310,6 @@ public extension ImageFilter where Self: CoreImageFilter {
 }
 
 /// Blurs an image using a `CIGaussianBlur` filter with the specified blur radius.
-@available(iOS 9.0, *)
 public struct BlurFilter: ImageFilter, CoreImageFilter {
     /// The filter name.
     public let filterName = "CIGaussianBlur"
