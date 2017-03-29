@@ -110,7 +110,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rhV-sf-tMd">
                                 <rect key="frame" x="0.0" y="44" width="375" height="559"/>
                                 <connections>
-                                    <segue destination="wXQ-LM-PLL" kind="embed" id="hbd-Sh-vjT"/>
+                                    <segue destination="wXQ-LM-PLL" kind="embed" identifier="MoviesCollectionViewController" id="hbd-Sh-vjT"/>
                                 </connections>
                             </containerView>
                             <toolbar opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYW-Yk-Co8" customClass="MoviesToolbar" customModule="kino" customModuleProvider="target">
