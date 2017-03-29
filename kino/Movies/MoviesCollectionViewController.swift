@@ -25,8 +25,7 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     }
 
     func loadMovies() {
-        // ..
-        let request =  MTMoviesRequest()
+        let request = self.request(for: self.mode)
         MTNetwork.makeRequest(request: request) { (response: MTMoviesResponse?, error: Error?) in
             if let response = response {
                 self.movies.removeAll()
@@ -34,6 +33,17 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
                 self.collectionView!.reloadData()
                 self.refreshControl.endRefreshing()
             }
+        }
+    }
+    
+    func request(for mode: Mode) -> MTBaseRequest {
+        switch mode {
+        case .Popular:
+            return MTMoviesRequest()
+        case .Soon:
+            return MTSoonRequest()
+        default:
+            return MTTopRequest()
         }
     }
     

@@ -17,6 +17,28 @@ class MTMoviesRequest: MTBaseRequest {
     }
 }
 
+class MTSoonRequest: MTBaseRequest {
+    
+    override func url() -> String {
+        return "discover/movie"
+    }
+    
+    init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+        super.init(parametes: params)
+    }
+}
+
+class MTTopRequest: MTBaseRequest {
+    
+    override func url() -> String {
+        return "discover/movie"
+    }
+    
+    init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+        super.init(parametes: params)
+    }
+}
+
 struct ParamsKeys {
     static let sorting = "sort_by"
 }
