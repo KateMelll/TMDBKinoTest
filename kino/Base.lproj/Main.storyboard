@@ -167,13 +167,27 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="4TV-gz-cPH">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoviesCollectionViewCell" id="4TV-gz-cPH" customClass="MoviesCollectionViewCell" customModule="kino" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BUo-NO-ivK">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="BUo-NO-ivK" firstAttribute="top" secondItem="4TV-gz-cPH" secondAttribute="top" id="Hph-J1-qes"/>
+                                    <constraint firstItem="BUo-NO-ivK" firstAttribute="leading" secondItem="4TV-gz-cPH" secondAttribute="leading" id="Ke7-v9-8pX"/>
+                                    <constraint firstAttribute="trailing" secondItem="BUo-NO-ivK" secondAttribute="trailing" id="Qkl-Hn-sJv"/>
+                                    <constraint firstAttribute="bottom" secondItem="BUo-NO-ivK" secondAttribute="bottom" id="X1c-c4-9fo"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="posterImageView" destination="BUo-NO-ivK" id="XnU-sq-hy4"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -184,7 +198,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTg-Kn-R60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2031" y="746"/>
+            <point key="canvasLocation" x="2012" y="762"/>
         </scene>
     </scenes>
 </document>
