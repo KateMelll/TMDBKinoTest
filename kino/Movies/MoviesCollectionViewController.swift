@@ -40,8 +40,8 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
         switch mode {
         case .Popular:
             return MTMoviesRequest()
-        case .Soon:
-            return MTSoonRequest()
+        case .Upcoming:
+            return MTUpcomingRequest()
         default:
             return MTTopRequest()
         }

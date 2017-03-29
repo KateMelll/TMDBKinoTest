@@ -10,6 +10,6 @@ import Foundation
 
 enum Mode {
     case Popular
-    case Soon
+    case Upcoming
     case Top
 }

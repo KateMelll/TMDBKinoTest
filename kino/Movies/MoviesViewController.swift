@@ -41,7 +41,7 @@ class MoviesViewController: UIViewController {
         case 0:
             return .Popular
         case 1:
-            return .Soon
+            return .Upcoming
         default:
             return .Top
         }

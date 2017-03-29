@@ -17,7 +17,7 @@ class MTMoviesRequest: MTBaseRequest {
     }
 }
 
-class MTSoonRequest: MTBaseRequest {
+class MTUpcomingRequest: MTBaseRequest {
     
     override func url() -> String {
         return "discover/movie"
