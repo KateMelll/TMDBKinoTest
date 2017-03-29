@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "MoviesCollectionViewCell"
 
-class MoviesCollectionViewController: UICollectionViewController {
+class MoviesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var movies = [MTMovie]()
     
@@ -51,7 +51,16 @@ class MoviesCollectionViewController: UICollectionViewController {
         return cell
     }
 
-    // MARK: UICollectionViewDelegate
+    // MARK: - UICollectionViewDelegateFlowLayout
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let cv = self.collectionView else {
+            return CGSize.zero
+        }
+        let width = CGFloat(cv.bounds.size.width / 2)
+        let height = CGFloat(3 * width / 2)
+        return CGSize(width: width, height: height)
+    }
     
     /*
     // Uncomment this method to specify if the specified item should be highlighted during tracking
