@@ -14,6 +14,7 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
 
     var movies = [MTMovie]()
     var refreshControl: UIRefreshControl!
+    weak var moviesViewController: MoviesViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
