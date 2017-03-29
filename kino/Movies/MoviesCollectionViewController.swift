@@ -13,10 +13,14 @@ private let reuseIdentifier = "MoviesCollectionViewCell"
 class MoviesCollectionViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     var movies = [MTMovie]()
+    var refreshControl: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.loadMovies()
+        self.refreshControl = UIRefreshControl()
+        self.refreshControl.addTarget(self, action: #selector(self.loadMovies), for: .valueChanged)
+        self.collectionView!.addSubview(self.refreshControl)
     }
 
     func loadMovies() {
@@ -26,6 +30,7 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
                 self.movies.removeAll()
                 self.movies.append(contentsOf: response.results)
                 self.collectionView!.reloadData()
+                self.refreshControl.endRefreshing()
             }
         }
     }
