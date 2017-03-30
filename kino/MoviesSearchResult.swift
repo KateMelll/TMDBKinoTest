@@ -18,15 +18,3 @@ class MTMoviesResponse: Mappable {
         results                 <- map["results"]
     }
 }
-
-class MTMovieDetailsResponse: Mappable {
-    
-    var result: MTMovieDetails?
-    
-    required init?(map: Map) { }
-
-    func mapping(map: Map) {
-        result                <- map["results"]
-    }
-    
-}

@@ -24,10 +24,30 @@ class MTMovie: Mappable {
 }
 
 class MTMovieDetails: Mappable {
+    var id: Int!
+    var budget: Float!
+    var homepage: String!
+    var original_title: String!
+    var overwiew: String!
+    var status: String!
+    var title: String!
+    var revenue: Int!
+    var runtime: Int!
+    var poster_path: String!
+    
     required init?(map: Map) { }
+    
     func mapping(map: Map) {
-//        poster_path             <- map["poster_path"]
-//        title                   <- map["title"]
+        id              <- map["id"]
+        budget          <- map["budget"]
+        homepage        <- map["homepage"]
+        original_title  <- map["original_title"]
+        overwiew        <- map["overwiew"]
+        status          <- map["status"]
+        title           <- map["title"]
+        revenue         <- map["revenue"]
+        runtime         <- map["runtime"]
+        poster_path     <- map["belongs_to_collection.poster_path"]
     }
 
 }

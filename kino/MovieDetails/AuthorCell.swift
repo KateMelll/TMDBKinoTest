@@ -2,7 +2,7 @@
 //  AuthorCell.swift
 //  kino
 //
-//  Created by K on 30/03/2017.
+//  Created by Kate on 30/03/2017.
 //  Copyright © 2017 Admin. All rights reserved.
 //
 

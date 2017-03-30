@@ -2,7 +2,7 @@
 //  MovieDetailsTableViewController.swift
 //  kino
 //
-//  Created by K on 30/03/2017.
+//  Created by Kate on 30/03/2017.
 //  Copyright © 2017 Admin. All rights reserved.
 //
 
@@ -11,28 +11,30 @@ import Alamofire
 
 class MovieDetailsTableViewController: UITableViewController {
 
+    
     var movie: MTMovie!
+    var movieDetails: MTMovieDetails!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("self movie \(self.movie)")
+//        print("self movie \(self.movie)")
         self.loadDetails()
-//        let url = "https://api.themoviedb.org/movie/263115"
-//        Alamofire.request(url).responseJSON { response in
-//            print("DETAILS \(response.result.value)")
-//        }
     }
     
     func loadDetails() {
         if let id = self.movie.id {
             let request = MTMovieDetailsRequest(id: id)
-            MTNetwork.makeRequest(request: request) { (response: MTMovieDetailsResponse?, error: Error?) in
-                if response != nil {
-                    print(response)
+            MTNetwork.makeRequest(request: request) { (response: MTMovieDetails?, error: Error?) in
+                if let response = response {
+                    print("RESPON \(response)")
+                    self.movieDetails = response
+                    self.tableView.reloadData()
+                    print("self.movieDetails \(self.movieDetails)")
+                }
+                else {
+                    print("Could not unwrap optional MTMovieDetails")
                 }
             }
-        } else {
-            print("no id")
         }
     }
 
