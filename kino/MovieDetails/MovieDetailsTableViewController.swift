@@ -9,21 +9,22 @@
 import UIKit
 import Alamofire
 
-enum CellKind: Int {
-    case Header = 0
-    case Plot = 1
-    case Author = 2
-    case Actor = 3
-    case AboutFilm = 4
-    case Other = 5
+enum Cell: Int {
+    case Header
+    case Plot
+    case Author
+    case Actor
+    case AboutFilm
+    case Other
+    case Total
 }
 
 class MovieDetailsTableViewController: UITableViewController {
 
-    
+
     var movie: MTMovie!
     var movieDetails: MTMovieDetails!
-    var cellsKinds = 6
+
     private let animationFadeInDuration: TimeInterval = 0.3
 
     
@@ -34,63 +35,58 @@ class MovieDetailsTableViewController: UITableViewController {
     }
     
     func loadDetails() {
-        if let id = self.movie.id {
-            let request = MTMovieDetailsRequest(id: id)
-            MTNetwork.makeRequest(request: request) { (response: MTMovieDetails?, error: Error?) in
-                if let response = response {
-                    print("RESPON \(response)")
-                    self.movieDetails = response
-                    self.tableView.reloadData()
-                    print("self.movieDetails \(self.movieDetails)")
-                }
-                else {
-                    print("Could not unwrap optional MTMovieDetails")
-                }
+        let request = MTMovieDetailsRequest(id: self.movie.id!)
+        MTNetwork.makeRequest(request: request) { (response: MTMovieDetails?, error: Error?) in
+            if let response = response {
+                self.movieDetails = response
+                self.tableView.reloadData()
+            }
+            else {
+                print("Could not unwrap optional MTMovieDetails")
             }
         }
     }
 
     private func configureController() {
-        
         tableView.estimatedRowHeight = 200
         tableView.rowHeight = UITableViewAutomaticDimension
-        
-//        self.title = "movies.nav.title".localize
     }
 
-    
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.cellsKinds
+        if let _ = self.movieDetails {
+            return Cell.Total.rawValue
+        }
+        else {
+            return 0
+        }
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == CellKind.Header.rawValue {
+        if indexPath.row == Cell.Header.rawValue {
             let headerCell = tableView.dequeueReusableCell(withIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
-            headerCell.item = self.movieDetails
-            print("item \(headerCell.item)")
+            headerCell.item = self.movieDetails!
             return headerCell
         }
-        if indexPath.row == CellKind.Plot.rawValue {
+        if indexPath.row == Cell.Plot.rawValue {
             let plotCell = tableView.dequeueReusableCell(withIdentifier: String(describing: PlotCell.self), for: indexPath) as! PlotCell
-            plotCell.item = self.movieDetails
+            plotCell.item = self.movieDetails!
             return plotCell
         }
-        if indexPath.row == CellKind.Author.rawValue {
+        if indexPath.row == Cell.Author.rawValue {
             let authorCell = tableView.dequeueReusableCell(withIdentifier: String(describing: AuthorCell.self), for: indexPath) as! AuthorCell
-            authorCell.item = self.movieDetails
+            authorCell.item = self.movieDetails!
             return authorCell
         }
-        if indexPath.row == CellKind.Actor.rawValue {
+        if indexPath.row == Cell.Actor.rawValue {
             let actorCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ActorCell.self), for: indexPath) as! ActorCell
-            actorCell.item = self.movieDetails
+            actorCell.item = self.movieDetails!
             return actorCell
         }
-        if indexPath.row == CellKind.AboutFilm.rawValue {
+        if indexPath.row == Cell.AboutFilm.rawValue {
             let aboutCell = tableView.dequeueReusableCell(withIdentifier: String(describing: AboutFilmCell.self), for: indexPath) as! AboutFilmCell
-            aboutCell.item = self.movieDetails
+            aboutCell.item = self.movieDetails!
             return aboutCell
         } else {
             let other = tableView.dequeueReusableCell(withIdentifier: String(describing: OtherCell.self), for: indexPath) as! OtherCell

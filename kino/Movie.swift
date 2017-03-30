@@ -47,7 +47,7 @@ class MTMovieDetails: Mappable {
         title           <- map["title"]
         revenue         <- map["revenue"]
         runtime         <- map["runtime"]
-        poster_path     <- map["belongs_to_collection.poster_path"]
+        poster_path     <- map["poster_path"]
     }
 
 }

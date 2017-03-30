@@ -16,6 +16,7 @@ class HeaderCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblYear: UILabel!
     @IBOutlet weak var lblAgeLimit: UILabel!
+    
     private let animationFadeInDuration: TimeInterval = 0.3
 
     override func awakeFromNib() {
@@ -24,7 +25,6 @@ class HeaderCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
     }
     
     var item: MTMovieDetails! {
@@ -34,10 +34,9 @@ class HeaderCell: UITableViewCell {
     }
     
     private func setInfo() {
-//        print("ITEM \(self.item)")
-//        self.setImage(self.item.poster_path, left: false)
+        self.setImage(self.item.poster_path, left: false)
 //        self.posterView.af_setImage(withURL: url!)
-//        self.lblTitle.text = self.item.title
+        self.lblTitle.text = self.item.title
 //        self.lblYear.text = self.item.
     }
 
@@ -49,14 +48,14 @@ class HeaderCell: UITableViewCell {
         
         if let url = URL(string: Constants.Server.imagesRootPath() + urlPathString!) {
             
-            imageView?.af_setImage(withURL: url,
-                                   placeholderImage: nil,
-                                   filter: nil,
-                                   progress: nil,
-                                   progressQueue: DispatchQueue.main,
-                                   imageTransition: UIImageView.ImageTransition.crossDissolve(animationFadeInDuration),
-                                   runImageTransitionIfCached: true,
-                                   completion: nil)
+        imageView?.af_setImage(withURL: url,
+                               placeholderImage: nil,
+                               filter: nil,
+                               progress: nil,
+                               progressQueue: DispatchQueue.main,
+                               imageTransition: UIImageView.ImageTransition.crossDissolve(animationFadeInDuration),
+                               runImageTransitionIfCached: true,
+                               completion: nil)
         }
     }
 
