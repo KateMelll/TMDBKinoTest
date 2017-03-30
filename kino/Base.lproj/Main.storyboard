@@ -60,16 +60,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="je8-nf-8jq">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="KhT-9e-dVx">
-                            <connections>
-                                <segue destination="Odv-Sv-2eO" kind="show" id="bYo-zn-gmz"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="KhT-9e-dVx"/>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sO-V8-faa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1184.8" y="5.8470764617691158"/>
+            <point key="canvasLocation" x="1279" y="-205"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Thf-Z6-2Nv">
@@ -88,7 +84,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="zGo-HS-P8T" kind="relationship" relationship="rootViewController" id="JeF-lE-1aj"/>
+                        <segue destination="Odv-Sv-2eO" kind="relationship" relationship="rootViewController" id="j6L-Oo-0b4"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OW3-3A-Orl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -157,7 +153,7 @@
         <scene sceneID="EiY-QE-naX">
             <objects>
                 <collectionViewController id="wXQ-LM-PLL" customClass="MoviesCollectionViewController" customModule="kino" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qYE-Ap-aqC">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="qYE-Ap-aqC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
