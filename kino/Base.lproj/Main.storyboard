@@ -144,11 +144,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="PCK-PC-0i3">
-                        <barButtonItem key="rightBarButtonItem" title="Details" id="3Fa-xl-loa">
-                            <connections>
-                                <segue destination="cbd-gE-7H0" kind="show" id="aHQ-Kj-F3Q"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Details" id="3Fa-xl-loa"/>
                     </navigationItem>
                     <connections>
                         <outlet property="segmentedCotrlView" destination="bb4-Ce-Erl" id="vRM-jo-fki"/>
@@ -194,6 +190,7 @@
                                 </constraints>
                                 <connections>
                                     <outlet property="posterImageView" destination="BUo-NO-ivK" id="XnU-sq-hy4"/>
+                                    <segue destination="cbd-gE-7H0" kind="show" identifier="MovieDetailsTableViewController" id="bqL-dv-BvW"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -207,12 +204,12 @@
             </objects>
             <point key="canvasLocation" x="2015" y="564"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Movie Details Table View Controller-->
         <scene sceneID="qc9-eM-J49">
             <objects>
-                <tableViewController id="cbd-gE-7H0" sceneMemberID="viewController">
+                <tableViewController id="cbd-gE-7H0" customClass="MovieDetailsTableViewController" customModule="kino" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="w9C-ai-Nzx">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="Omq-Z7-KfJ" userLabel="Top">

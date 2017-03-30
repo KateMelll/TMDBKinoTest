@@ -54,6 +54,11 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: MovieDetailsTableViewController.self) {
+            let destController = segue.destination as! MovieDetailsTableViewController
+            destController.movie = self.item(at: self.collectionView!.indexPathsForSelectedItems!.first!)
+            
+        }
     }
 
     // MARK: UICollectionViewDataSource
