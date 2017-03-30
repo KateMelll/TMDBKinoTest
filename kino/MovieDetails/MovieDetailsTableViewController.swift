@@ -9,15 +9,27 @@
 import UIKit
 import Alamofire
 
+enum CellKind: Int {
+    case Header = 0
+    case Plot = 1
+    case Author = 2
+    case Actor = 3
+    case AboutFilm = 4
+    case Other = 5
+}
+
 class MovieDetailsTableViewController: UITableViewController {
 
     
     var movie: MTMovie!
     var movieDetails: MTMovieDetails!
+    var cellsKinds = 6
+    private let animationFadeInDuration: TimeInterval = 0.3
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print("self movie \(self.movie)")
+        self.configureController()
         self.loadDetails()
     }
     
@@ -38,27 +50,56 @@ class MovieDetailsTableViewController: UITableViewController {
         }
     }
 
+    private func configureController() {
+        
+        tableView.estimatedRowHeight = 200
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
+//        self.title = "movies.nav.title".localize
+    }
+
+    
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.cellsKinds
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        if indexPath.row == CellKind.Header.rawValue {
+            let headerCell = tableView.dequeueReusableCell(withIdentifier: String(describing: HeaderCell.self), for: indexPath) as! HeaderCell
+            headerCell.item = self.movieDetails
+            print("item \(headerCell.item)")
+            return headerCell
+        }
+        if indexPath.row == CellKind.Plot.rawValue {
+            let plotCell = tableView.dequeueReusableCell(withIdentifier: String(describing: PlotCell.self), for: indexPath) as! PlotCell
+            plotCell.item = self.movieDetails
+            return plotCell
+        }
+        if indexPath.row == CellKind.Author.rawValue {
+            let authorCell = tableView.dequeueReusableCell(withIdentifier: String(describing: AuthorCell.self), for: indexPath) as! AuthorCell
+            authorCell.item = self.movieDetails
+            return authorCell
+        }
+        if indexPath.row == CellKind.Actor.rawValue {
+            let actorCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ActorCell.self), for: indexPath) as! ActorCell
+            actorCell.item = self.movieDetails
+            return actorCell
+        }
+        if indexPath.row == CellKind.AboutFilm.rawValue {
+            let aboutCell = tableView.dequeueReusableCell(withIdentifier: String(describing: AboutFilmCell.self), for: indexPath) as! AboutFilmCell
+            aboutCell.item = self.movieDetails
+            return aboutCell
+        } else {
+            let other = tableView.dequeueReusableCell(withIdentifier: String(describing: OtherCell.self), for: indexPath) as! OtherCell
+            other.item = self.movieDetails
+            return other
+        }
     }
-    */
+
+ 
 
     /*
     // Override to support conditional editing of the table view.

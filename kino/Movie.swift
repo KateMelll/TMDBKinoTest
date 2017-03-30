@@ -28,7 +28,7 @@ class MTMovieDetails: Mappable {
     var budget: Float!
     var homepage: String!
     var original_title: String!
-    var overwiew: String!
+    var overview: String!
     var status: String!
     var title: String!
     var revenue: Int!
@@ -42,7 +42,7 @@ class MTMovieDetails: Mappable {
         budget          <- map["budget"]
         homepage        <- map["homepage"]
         original_title  <- map["original_title"]
-        overwiew        <- map["overwiew"]
+        overview        <- map["overview"]
         status          <- map["status"]
         title           <- map["title"]
         revenue         <- map["revenue"]
