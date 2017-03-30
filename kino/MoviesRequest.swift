@@ -17,38 +17,41 @@ class MTMoviesRequest: MTBaseRequest {
     }
 }
 
-class MTPopularRequest: MTBaseRequest {
+class MTPopularRequest: MTMoviesRequest {
     
     override func url() -> String {
         return "movie/popular"
     }
-    
-    init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
-        super.init(parametes: params)
-    }
 }
 
-class MTUpcomingRequest: MTBaseRequest {
+class MTUpcomingRequest: MTMoviesRequest {
     
     override func url() -> String {
         return "movie/upcoming"
     }
-    
-    init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
-        super.init(parametes: params)
-    }
 }
 
-class MTTopRequest: MTBaseRequest {
+class MTTopRequest: MTMoviesRequest {
     
     override func url() -> String {
         return "movie/top_rated"
     }
+}
+
+class MTMovieDetailsRequest: MTMoviesRequest {
     
-    init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
-        super.init(parametes: params)
+    var id: Int!
+    
+    override func url() -> String {
+        return "movie/\(self.id!)"
+    }
+    
+    init(id: Int, params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+        self.id = id
+        super.init(params: params)
     }
 }
+
 
 struct ParamsKeys {
     static let sorting = "sort_by"

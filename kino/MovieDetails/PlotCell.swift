@@ -1,5 +1,5 @@
 //
-//  MovieDetailsTableViewCell.swift
+//  PlotCell.swift
 //  kino
 //
 //  Created by K on 30/03/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MovieDetailsTableViewCell: UITableViewCell {
+class PlotCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

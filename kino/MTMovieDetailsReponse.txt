@@ -1,0 +1,72 @@
+{
+adult = 0;
+"backdrop_path" = "/5pAGnkFYSsFJ99ZxDIYnhQbQFXs.jpg";
+"belongs_to_collection" =     {
+    "backdrop_path" = "/Abnosho2v3bcdvDww6T7Hfeczm1.jpg";
+    id = 748;
+    name = "X-Men Collection";
+    "poster_path" = "/1Zo4J5SAni8lyXt7NxJwJZ0f0ip.jpg";
+    };
+budget = 97000000;
+genres =     (
+    {
+        id = 28;
+        name = Action;
+    },
+    {
+        id = 18;
+        name = Drama;
+    },
+    {
+        id = 878;
+        name = "Science Fiction";
+    }
+);
+homepage = "http://www.foxmovies.com/movies/logan";
+id = 263115;
+"imdb_id" = tt3315342;
+"original_language" = en;
+"original_title" = Logan;
+overview = "In the near future, a weary Logan cares for an ailing Professor X in a hide out on the Mexican border. But Logan's attempts to hide from the world and his legacy are up-ended when a young mutant arrives, being pursued by dark forces.";
+popularity = "134.973521";
+"poster_path" = "/45Y1G5FEgttPAwjTYic6czC9xCn.jpg";
+"production_companies" =     (
+    {
+        id = 306;
+        name = "Twentieth Century Fox Film Corporation";
+    },
+    {
+        id = 431;
+        name = "Donners' Company";
+    },
+    {
+        id = 7505;
+        name = "Marvel Entertainment";
+    },
+    {
+        id = 22213;
+        name = "TSG Entertainment";
+    }
+);
+"production_countries" =     (
+    {
+        "iso_3166_1" = US;
+        name = "United States of America";
+    }
+);
+"release_date" = "2017-02-28";
+revenue = 568095097;
+runtime = 141;
+"spoken_languages" =     (
+    {
+        "iso_639_1" = en;
+        name = English;
+    }
+);
+status = Released;
+tagline = "His Time Has Come";
+title = Logan;
+video = 0;
+"vote_average" = "7.6";
+"vote_count" = 1915;
+}

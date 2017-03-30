@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MovieDetailsTableViewController: UITableViewController {
 
@@ -15,6 +16,24 @@ class MovieDetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("self movie \(self.movie)")
+        self.loadDetails()
+//        let url = "https://api.themoviedb.org/movie/263115"
+//        Alamofire.request(url).responseJSON { response in
+//            print("DETAILS \(response.result.value)")
+//        }
+    }
+    
+    func loadDetails() {
+        if let id = self.movie.id {
+            let request = MTMovieDetailsRequest(id: id)
+            MTNetwork.makeRequest(request: request) { (response: MTMovieDetailsResponse?, error: Error?) in
+                if response != nil {
+                    print(response)
+                }
+            }
+        } else {
+            print("no id")
+        }
     }
 
     // MARK: - Table view data source
