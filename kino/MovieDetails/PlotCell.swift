@@ -10,6 +10,8 @@ import UIKit
 
 class PlotCell: UITableViewCell {
 
+    @IBOutlet weak var overviewLabel: UILabel!
+    
     private let animationFadeInDuration: TimeInterval = 0.3
     
     override func awakeFromNib() {
@@ -30,27 +32,8 @@ class PlotCell: UITableViewCell {
     }
     
     private func setInfo() {
-        
+        self.overviewLabel.text = self.item.overview
     }
     
-    private func setImage(_ urlPathString: String?, left: Bool) {
-        
-        guard urlPathString != nil else {
-            return
-        }
-        
-        if let url = URL(string: Constants.Server.imagesRootPath() + urlPathString!) {
-            
-            imageView?.af_setImage(withURL: url,
-                                   placeholderImage: nil,
-                                   filter: nil,
-                                   progress: nil,
-                                   progressQueue: DispatchQueue.main,
-                                   imageTransition: UIImageView.ImageTransition.crossDissolve(animationFadeInDuration),
-                                   runImageTransitionIfCached: true,
-                                   completion: nil)
-        }
-    }
-
     
 }

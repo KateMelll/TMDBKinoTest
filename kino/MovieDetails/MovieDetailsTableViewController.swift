@@ -15,7 +15,6 @@ enum Cell: Int {
     case Author
     case Actor
     case AboutFilm
-    case Other
     case Total
 }
 
@@ -84,16 +83,13 @@ class MovieDetailsTableViewController: UITableViewController {
             actorCell.item = self.movieDetails!
             return actorCell
         }
-        if indexPath.row == Cell.AboutFilm.rawValue {
-            let aboutCell = tableView.dequeueReusableCell(withIdentifier: String(describing: AboutFilmCell.self), for: indexPath) as! AboutFilmCell
+        else {
+            let aboutCell = tableView.dequeueReusableCell(withIdentifier:String(describing: AboutFilmCell.self), for: indexPath) as!AboutFilmCell
             aboutCell.item = self.movieDetails!
             return aboutCell
-        } else {
-            let other = tableView.dequeueReusableCell(withIdentifier: String(describing: OtherCell.self), for: indexPath) as! OtherCell
-            other.item = self.movieDetails
-            return other
+            }
         }
-    }
+}
 
  
 
@@ -142,4 +138,4 @@ class MovieDetailsTableViewController: UITableViewController {
     }
     */
 
-}
+

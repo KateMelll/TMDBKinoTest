@@ -37,6 +37,7 @@ class HeaderCell: UITableViewCell {
         self.setImage(self.item.poster_path, left: false)
 //        self.posterView.af_setImage(withURL: url!)
         self.lblTitle.text = self.item.title
+        self.setBackImage(self.item.backdrop_path, left: false)
 //        self.lblYear.text = self.item.
     }
 
@@ -56,6 +57,26 @@ class HeaderCell: UITableViewCell {
                                imageTransition: UIImageView.ImageTransition.crossDissolve(animationFadeInDuration),
                                runImageTransitionIfCached: true,
                                completion: nil)
+        }
+    }
+
+    
+    private func setBackImage(_ urlPathString: String?, left: Bool) {
+        
+        guard urlPathString != nil else {
+            return
+        }
+        
+        if let url = URL(string: Constants.Server.imagesRootPath() + urlPathString!) {
+            
+            imageView?.af_setImage(withURL: url,
+                                   placeholderImage: nil,
+                                   filter: nil,
+                                   progress: nil,
+                                   progressQueue: DispatchQueue.main,
+                                   imageTransition: UIImageView.ImageTransition.crossDissolve(animationFadeInDuration),
+                                   runImageTransitionIfCached: true,
+                                   completion: nil)
         }
     }
 

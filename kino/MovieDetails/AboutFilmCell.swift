@@ -10,6 +10,14 @@ import UIKit
 
 class AboutFilmCell: UITableViewCell {
 
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var originalLangLabel: UILabel!
+    @IBOutlet weak var runtimeLabel: UILabel!
+    @IBOutlet weak var budgetLabel: UILabel!
+    @IBOutlet weak var revenuelabel: UILabel!
+    @IBOutlet weak var homepagelabel: UILabel!
+    
     private let animationFadeInDuration: TimeInterval = 0.3
     
     override func awakeFromNib() {
@@ -30,27 +38,16 @@ class AboutFilmCell: UITableViewCell {
     }
     
     private func setInfo() {
-        
+        self.titleLabel.text = self.item.original_title
+        self.statusLabel.text = self.item.status
+        self.originalLangLabel.text = self.item.original_title
+        self.runtimeLabel.text = String(describing:self.item.runtime)
+        self.budgetLabel.text = String(describing:self.item.budget)
+        self.revenuelabel.text = String(describing:self.item.revenue)
+        self.homepagelabel.text = self.item.homepage
     }
     
-    private func setImage(_ urlPathString: String?, left: Bool) {
-        
-        guard urlPathString != nil else {
-            return
-        }
-        
-        if let url = URL(string: Constants.Server.imagesRootPath() + urlPathString!) {
-            
-            imageView?.af_setImage(withURL: url,
-                                   placeholderImage: nil,
-                                   filter: nil,
-                                   progress: nil,
-                                   progressQueue: DispatchQueue.main,
-                                   imageTransition: UIImageView.ImageTransition.crossDissolve(animationFadeInDuration),
-                                   runImageTransitionIfCached: true,
-                                   completion: nil)
-        }
-    }
+    
     
 
 

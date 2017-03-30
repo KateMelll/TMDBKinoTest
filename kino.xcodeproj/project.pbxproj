@@ -18,7 +18,6 @@
 		446BFEFA1E8D03C50033D535 /* AuthorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446BFEF91E8D03C50033D535 /* AuthorCell.swift */; };
 		446BFEFC1E8D03D40033D535 /* ActorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446BFEFB1E8D03D40033D535 /* ActorCell.swift */; };
 		446BFEFE1E8D03E30033D535 /* AboutFilmCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446BFEFD1E8D03E30033D535 /* AboutFilmCell.swift */; };
-		446BFF001E8D03F40033D535 /* OtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446BFEFF1E8D03F40033D535 /* OtherCell.swift */; };
 		446BFF041E8D30800033D535 /* MTMovieDetailsReponse.json in Resources */ = {isa = PBXBuildFile; fileRef = 446BFF031E8D30800033D535 /* MTMovieDetailsReponse.json */; };
 		446BFF061E8D42310033D535 /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446BFF051E8D42310033D535 /* HeaderCell.swift */; };
 		8463B8221E87D2520050121A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463B8211E87D2520050121A /* AppDelegate.swift */; };
@@ -52,7 +51,6 @@
 		446BFEF91E8D03C50033D535 /* AuthorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorCell.swift; sourceTree = "<group>"; };
 		446BFEFB1E8D03D40033D535 /* ActorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActorCell.swift; sourceTree = "<group>"; };
 		446BFEFD1E8D03E30033D535 /* AboutFilmCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutFilmCell.swift; sourceTree = "<group>"; };
-		446BFEFF1E8D03F40033D535 /* OtherCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherCell.swift; sourceTree = "<group>"; };
 		446BFF031E8D30800033D535 /* MTMovieDetailsReponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MTMovieDetailsReponse.json; sourceTree = "<group>"; };
 		446BFF051E8D42310033D535 /* HeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
 		678DACE98E7ABE4092E18051 /* Pods_kino.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_kino.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +114,6 @@
 				446BFEF91E8D03C50033D535 /* AuthorCell.swift */,
 				446BFEFB1E8D03D40033D535 /* ActorCell.swift */,
 				446BFEFD1E8D03E30033D535 /* AboutFilmCell.swift */,
-				446BFEFF1E8D03F40033D535 /* OtherCell.swift */,
 			);
 			path = MovieDetails;
 			sourceTree = "<group>";
@@ -358,7 +355,6 @@
 				446BFEFC1E8D03D40033D535 /* ActorCell.swift in Sources */,
 				8463B83E1E87D78D0050121A /* MoviesRequest.swift in Sources */,
 				446BFEFA1E8D03C50033D535 /* AuthorCell.swift in Sources */,
-				446BFF001E8D03F40033D535 /* OtherCell.swift in Sources */,
 				C5FA8CD31E8BAB730052ABDB /* String+Tools.swift in Sources */,
 				446BFEF81E8D03B30033D535 /* PlotCell.swift in Sources */,
 				8463B8421E87DC050050121A /* MoviesTVC+Presenter.swift in Sources */,

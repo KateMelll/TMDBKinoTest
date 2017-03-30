@@ -34,6 +34,7 @@ class MTMovieDetails: Mappable {
     var revenue: Int!
     var runtime: Int!
     var poster_path: String!
+    var backdrop_path: String!
     
     required init?(map: Map) { }
     
@@ -48,6 +49,7 @@ class MTMovieDetails: Mappable {
         revenue         <- map["revenue"]
         runtime         <- map["runtime"]
         poster_path     <- map["poster_path"]
+        backdrop_path   <- map["backdrop_path"]
     }
 
 }
