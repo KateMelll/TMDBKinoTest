@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import SwiftHexColor
 
 class HeaderCell: UITableViewCell {
 
@@ -71,15 +72,13 @@ class HeaderCell: UITableViewCell {
         self.backdropView.sd_setImage(with: backUrl)
         let voteAvrg = self.item.vote_average!
         let score = (voteAvrg * 100) / 10
+        self.scoreBgView.color = UIColor.gray
         if score < 50 {
-            self.scoreBgView.color = UIColor.gray
-            self.scoreView.color = UIColor.red
+            self.scoreView.color = UIColor(hexString: "D81313")!
         } else if score < 70 {
-            self.scoreBgView.color = UIColor.gray
-            self.scoreView.color = UIColor.yellow
+            self.scoreView.color = UIColor(hexString: "DAE723")!
         } else {
-            self.scoreBgView.color = UIColor.gray
-            self.scoreView.color = UIColor.green
+            self.scoreView.color = UIColor(hexString:"0DDE67")!
         }
         self.voteAvrgLabel.text = String(describing: Int(score))
         let year = self.getYear(from: self.item.release_date)
