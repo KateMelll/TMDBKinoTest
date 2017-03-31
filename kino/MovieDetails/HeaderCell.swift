@@ -20,8 +20,8 @@ class HeaderCell: UITableViewCell {
     @IBOutlet weak var scoreView: ScoreView!
     @IBOutlet weak var voteAvrgLabel: UILabel!
     
-    let generalTime: Double = 2
-    var temp: Double = 2
+    let generalTime: Double = 0.25
+    var temp: Double = 0.25
     var timer: Timer!
     private let animationFadeInDuration: TimeInterval = 0.3
     
@@ -58,17 +58,7 @@ class HeaderCell: UITableViewCell {
     var item: MTMovieDetails! {
         didSet {
             self.setInfo()
-            
-            self.scoreBgView.color = UIColor.gray
             self.scoreBgView.progress = 1
-            self.scoreView.color = UIColor.green
-            
-//            self.scoreBgView.color = UIColor.green
-//            self.scoreView.color = UIColor.red
-
-//            self.scoreBgView.color = UIColor.green
-//            self.scoreView.color = UIColor.red
-            
             self.startTimer()
         }
     }
@@ -81,6 +71,16 @@ class HeaderCell: UITableViewCell {
         self.backdropView.sd_setImage(with: backUrl)
         let voteAvrg = self.item.vote_average!
         let score = (voteAvrg * 100) / 10
+        if score < 50 {
+            self.scoreBgView.color = UIColor.gray
+            self.scoreView.color = UIColor.red
+        } else if score < 70 {
+            self.scoreBgView.color = UIColor.gray
+            self.scoreView.color = UIColor.yellow
+        } else {
+            self.scoreBgView.color = UIColor.gray
+            self.scoreView.color = UIColor.green
+        }
         self.voteAvrgLabel.text = String(describing: Int(score))
         let year = self.getYear(from: self.item.release_date)
         self.lblYear.text = year
