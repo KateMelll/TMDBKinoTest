@@ -12,6 +12,7 @@ import SwiftHexColor
 class ScoreView: UIView {
     
     var color = UIColor.black
+    var end: CGFloat = 1
     var progress: CGFloat = 0 {
         didSet {
             self.setNeedsDisplay()
@@ -22,8 +23,8 @@ class ScoreView: UIView {
         let center = CGPoint(x: self.bounds.width / 2, y: self.bounds.height / 2)
         let radius: CGFloat = min(bounds.width + 5, bounds.height + 5)
         let arcWidth: CGFloat = 75
-        let start: CGFloat = 0
-        let end: CGFloat = progress * (2 * CGFloat(M_PI))
+        let start: CGFloat = 0 + CGFloat(M_PI_2)
+        let end: CGFloat = self.end * progress * (2 * CGFloat(M_PI)) + CGFloat(M_PI_2)
         let path = UIBezierPath(arcCenter: center, radius: radius / 2 - arcWidth / 2, startAngle: start, endAngle: end, clockwise: true)
         path.lineWidth = 2
         self.color.setStroke()

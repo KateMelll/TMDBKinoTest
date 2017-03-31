@@ -72,6 +72,7 @@ class HeaderCell: UITableViewCell {
         self.backdropView.sd_setImage(with: backUrl)
         let voteAvrg = self.item.vote_average!
         let score = (voteAvrg * 100) / 10
+        self.scoreView.end = CGFloat(Double(score) / 100.0)
         if score < 50 {
             self.scoreView.color = UIColor(hexString: "D81313")!
         } else if score < 70 {
