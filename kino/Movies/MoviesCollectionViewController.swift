@@ -30,6 +30,8 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
         let request = self.request(for: self.mode, page: self.page)
         MTNetwork.makeRequest(request: request) { (response: MTMoviesResponse?, error: Error?) in
             if let response = response {
+                
+                
                 self.movies.removeAll()
                 self.movies.append(contentsOf: response.results)
                 self.collectionView!.reloadData()
