@@ -21,8 +21,8 @@ class HeaderCell: UITableViewCell {
     @IBOutlet weak var scoreView: ScoreView!
     @IBOutlet weak var voteAvrgLabel: UILabel!
     
-    let generalTime: Double = 0.25
-    var temp: Double = 0.25
+    let generalTime: Double = 0.5
+    var temp: Double = 0.5
     var timer: Timer!
     private let animationFadeInDuration: TimeInterval = 0.3
     
@@ -72,13 +72,14 @@ class HeaderCell: UITableViewCell {
         self.backdropView.sd_setImage(with: backUrl)
         let voteAvrg = self.item.vote_average!
         let score = (voteAvrg * 100) / 10
-        self.scoreBgView.color = UIColor.gray
         if score < 50 {
             self.scoreView.color = UIColor(hexString: "D81313")!
         } else if score < 70 {
             self.scoreView.color = UIColor(hexString: "DAE723")!
+            self.scoreBgView.color = UIColor(hexString: "8C8C6E")!
         } else {
             self.scoreView.color = UIColor(hexString:"0DDE67")!
+            self.scoreBgView.color = UIColor(hexString: "566C5F")!
         }
         self.voteAvrgLabel.text = String(describing: Int(score))
         let year = self.getYear(from: self.item.release_date)
