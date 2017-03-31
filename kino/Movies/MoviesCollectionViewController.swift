@@ -84,7 +84,11 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.movies.count + 1
+        if self.mode! == .Top {
+            return self.movies.count
+        } else {
+            return self.movies.count + 1
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
