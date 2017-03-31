@@ -25,7 +25,7 @@ class MTMovie: Mappable {
 
 class MTMovieDetails: Mappable {
     var id: Int!
-    var budget: Float!
+    var budget: Int!
     var homepage: String!
     var original_title: String!
     var overview: String!
