@@ -38,6 +38,9 @@ class MTMovieDetails: Mappable {
     var vote_average: Float!
     var release_date: String!
     
+    var cert: String?
+//    var release_dates: MTReleaseDateResponse!
+    
     required init?(map: Map) { }
     
     func mapping(map: Map) {
@@ -54,6 +57,7 @@ class MTMovieDetails: Mappable {
         backdrop_path   <- map["backdrop_path"]
         vote_average    <- map["vote_average"]
         release_date    <- map["release_date"]
+//        release_dates   <- map["release_dates"]
     }
 
 }

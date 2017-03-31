@@ -20,7 +20,7 @@ class MTNetwork {
                           encoding: request.encoding(),
                           headers: request.headers()).responseJSON { response in
                             if response.result.isSuccess {
-                                print(response.result.value)
+//                                print(response.result.value)
                                 let data = Mapper<M>().map(JSONObject: response.result.value)
                                 callback(data, nil)
                             }

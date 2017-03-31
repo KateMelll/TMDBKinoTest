@@ -67,6 +67,7 @@ class HeaderCell: UITableViewCell {
         self.voteAvrgLabel.text = String(describing: Int(score))
         let year = self.getYear(from: self.item.release_date)
         self.lblYear.text = year
+        self.lblAgeLimit.text = self.item.cert
     }
 
     func getYear(from date: String) -> String {

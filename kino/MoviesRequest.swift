@@ -49,9 +49,22 @@ class MTMovieDetailsRequest: MTMoviesRequest {
     init(id: Int, params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
         self.id = id
         super.init(params: params)
+        self.parametres.parametes!["append_to_response"] = "release_dates"
     }
 }
 
+class MTMovieReleasesRequest: MTMoviesRequest {
+    
+    var id: Int!
+    
+    override func url() -> String {
+        return "movie/\(self.id!)/release_dates"
+    }
+    init(id: Int, params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+        self.id = id
+        super.init(params: params)
+    }
+}
 
 struct ParamsKeys {
     static let sorting = "sort_by"

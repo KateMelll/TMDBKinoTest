@@ -18,3 +18,40 @@ class MTMoviesResponse: Mappable {
         results                 <- map["results"]
     }
 }
+//
+//class MTReleaseDateResponse: Mappable {
+//    var release_dates: [MTReleaseResponse]()
+//    required init?(map: Map) { }
+//    func mapping(map: Map) {
+//        release_dates           <- map["release_dates"]
+//    }
+//}
+
+class MTReleaseDateResultsResponse: Mappable {
+    var results: [MTReleaseResponse] = []
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        results                 <- map["results"]
+    }
+
+}
+
+class MTReleaseResponse: Mappable {
+    var iso: String!
+    var date: [MTRelease] = []
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        iso                     <- map["iso_3166_1"]
+        date                    <- map["release_dates"]
+    }
+
+}
+
+class MTRelease: Mappable {
+    var certification: String!
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        certification           <- map["certification"]
+    }
+
+}

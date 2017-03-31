@@ -31,6 +31,8 @@ class MovieDetailsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.configureController()
         self.loadDetails()
+        
+        
     }
     
     func loadDetails() {
@@ -38,7 +40,21 @@ class MovieDetailsTableViewController: UITableViewController {
         MTNetwork.makeRequest(request: request) { (response: MTMovieDetails?, error: Error?) in
             if let response = response {
                 self.movieDetails = response
-                self.tableView.reloadData()
+                
+                let request = MTMovieReleasesRequest(id: self.movie.id!)
+                MTNetwork.makeRequest(request: request) { (response: MTReleaseDateResultsResponse?, error: Error?) in
+                    if let response = response {
+                        for release in response.results {
+                            if release.iso.lowercased() == "US".lowercased() {
+                                self.movieDetails.cert = release.date.first?.certification
+                            }
+                        }
+                    }
+                    else {
+                        print("Could not unwrap optional MTMovieDetails")
+                    }
+                    self.tableView.reloadData()
+                }
             }
             else {
                 print("Could not unwrap optional MTMovieDetails")
