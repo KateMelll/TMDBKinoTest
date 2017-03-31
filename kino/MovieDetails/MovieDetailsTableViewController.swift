@@ -25,7 +25,6 @@ class MovieDetailsTableViewController: UITableViewController {
     var movieDetails: MTMovieDetails!
 
     private let animationFadeInDuration: TimeInterval = 0.3
-
     
     override func viewDidLoad() {
         super.viewDidLoad()

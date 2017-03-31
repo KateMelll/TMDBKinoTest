@@ -16,6 +16,8 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     var refreshControl: UIRefreshControl!
     weak var moviesViewController: MoviesViewController!
     var mode: Mode!
+    var pagePopular = 1
+    var pageUpcoming = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +27,14 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     }
 
     func loadMovies() {
+        switch self.mode! {
+        case .Popular:
+            self.pagePopular = 1
+        case .Upcoming:
+            self.pageUpcoming = 1
+        default:
+            print()
+        }
         let request = self.request(for: self.mode)
         MTNetwork.makeRequest(request: request) { (response: MTMoviesResponse?, error: Error?) in
             if let response = response {
@@ -39,9 +49,9 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     func request(for mode: Mode) -> MTBaseRequest {
         switch mode {
         case .Popular:
-            return MTPopularRequest(page: 1)
+            return MTPopularRequest(page: self.pagePopular)
         case .Upcoming:
-            return MTUpcomingRequest(page: 1)
+            return MTUpcomingRequest(page: self.pageUpcoming)
         default:
             return MTTopRequest()
         }
