@@ -46,12 +46,12 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
         }
     }
     
-    func request(for mode: Mode) -> MTBaseRequest {
+    func request(for mode: Mode, page: Int = 1) -> MTBaseRequest {
         switch mode {
         case .Popular:
-            return MTPopularRequest(page: self.pagePopular)
+            return MTPopularRequest(page: page)
         case .Upcoming:
-            return MTUpcomingRequest(page: self.pageUpcoming)
+            return MTUpcomingRequest(page: page)
         default:
             return MTTopRequest()
         }
@@ -77,21 +77,33 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
 
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if self.movies.count <= indexPath.row {
+            
+            var page = 1
+            
             switch self.mode! {
             case .Popular:
-                self.pagePopular += 1
-                
-
+                page = self.pagePopular + 1
             case .Upcoming:
-                self.pageUpcoming += 1
+                page = self.pageUpcoming + 1
             default:
                 print("")
             }
-            let request = self.request(for: self.mode)
+            
+            let request = self.request(for: self.mode, page: page)
+            
             MTNetwork.makeRequest(request: request) { (response: MTMoviesResponse?, error: Error?) in
                 if let response = response {
                     self.movies.append(contentsOf: response.results)
                     self.collectionView!.reloadData()
+                    
+                    switch self.mode! {
+                    case .Popular:
+                        self.pagePopular += 1
+                    case .Upcoming:
+                        self.pageUpcoming += 1
+                    default:
+                        print("")
+                    }
                 }
             }
 
