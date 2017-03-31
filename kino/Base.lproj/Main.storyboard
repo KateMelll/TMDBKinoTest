@@ -227,6 +227,14 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dNL-N1-Xp3" userLabel="User Score View">
                                                     <rect key="frame" x="48" y="228" width="132.5" height="37"/>
                                                     <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWB-Sj-xIe" userLabel="Score Bg View" customClass="ScoreView" customModule="kino" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="36" id="Asa-IL-zNu"/>
+                                                                <constraint firstAttribute="width" constant="36" id="jfb-uX-x5t"/>
+                                                            </constraints>
+                                                        </view>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yz8-kx-A8S" userLabel="Score View" customClass="ScoreView" customModule="kino" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                                             <subviews>
@@ -254,12 +262,16 @@
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     <constraints>
+                                                        <constraint firstItem="iWB-Sj-xIe" firstAttribute="leading" secondItem="yz8-kx-A8S" secondAttribute="leading" id="AYU-Ya-9BM"/>
+                                                        <constraint firstItem="iWB-Sj-xIe" firstAttribute="trailing" secondItem="yz8-kx-A8S" secondAttribute="trailing" id="AoU-MV-GqU"/>
                                                         <constraint firstAttribute="bottom" secondItem="yz8-kx-A8S" secondAttribute="bottom" constant="1" id="IO5-Ze-NV2"/>
                                                         <constraint firstAttribute="trailing" secondItem="F2L-Hv-nTk" secondAttribute="trailing" id="QsC-SF-zDz"/>
                                                         <constraint firstItem="F2L-Hv-nTk" firstAttribute="leading" secondItem="yz8-kx-A8S" secondAttribute="trailing" constant="8" id="REB-Qh-cuC"/>
                                                         <constraint firstItem="yz8-kx-A8S" firstAttribute="leading" secondItem="dNL-N1-Xp3" secondAttribute="leading" id="Xb9-dh-8H9"/>
                                                         <constraint firstItem="yz8-kx-A8S" firstAttribute="top" secondItem="dNL-N1-Xp3" secondAttribute="top" id="eD4-bW-8mj"/>
+                                                        <constraint firstItem="iWB-Sj-xIe" firstAttribute="bottom" secondItem="yz8-kx-A8S" secondAttribute="bottom" id="gyW-bv-TNV"/>
                                                         <constraint firstAttribute="bottom" secondItem="F2L-Hv-nTk" secondAttribute="bottom" constant="8" id="p6Z-dy-eZH"/>
+                                                        <constraint firstItem="iWB-Sj-xIe" firstAttribute="top" secondItem="yz8-kx-A8S" secondAttribute="top" id="r7h-3U-lCJ"/>
                                                         <constraint firstItem="F2L-Hv-nTk" firstAttribute="top" secondItem="dNL-N1-Xp3" secondAttribute="top" constant="8" id="yjg-cJ-pYg"/>
                                                     </constraints>
                                                 </view>
@@ -297,6 +309,7 @@
                                     <outlet property="lblTitle" destination="Q4u-H1-OXU" id="6Ih-JK-aUt"/>
                                     <outlet property="lblYear" destination="0YB-bM-SzJ" id="b40-Qw-wh5"/>
                                     <outlet property="posterView" destination="hPS-ha-h8C" id="uLf-Ro-Cgt"/>
+                                    <outlet property="scoreBgView" destination="iWB-Sj-xIe" id="p8B-cn-OxB"/>
                                     <outlet property="scoreView" destination="yz8-kx-A8S" id="H2E-kf-S3e"/>
                                     <outlet property="voteAvrgLabel" destination="YFP-Oc-a7T" id="lSW-Rz-3JL"/>
                                 </connections>
@@ -589,6 +602,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTg-Kn-R60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2014" y="534"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="h1v-Ew-9gS">
+            <objects>
+                <viewController id="9hH-fW-UVr" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cbV-FE-8Ng">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpz-zG-B1k">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.97343605759999996" green="0.38369259239999998" blue="0.38572835919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="Zpz-zG-B1k" secondAttribute="bottom" id="JB7-ZB-u5f"/>
+                            <constraint firstAttribute="trailing" secondItem="Zpz-zG-B1k" secondAttribute="trailing" id="YF3-gG-I8S"/>
+                            <constraint firstItem="Zpz-zG-B1k" firstAttribute="top" secondItem="cbV-FE-8Ng" secondAttribute="top" id="pwJ-iJ-sfp"/>
+                            <constraint firstItem="Zpz-zG-B1k" firstAttribute="leading" secondItem="cbV-FE-8Ng" secondAttribute="leading" id="uBB-y8-44O"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vod-vY-rkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2961" y="1340"/>
         </scene>
     </scenes>
 </document>

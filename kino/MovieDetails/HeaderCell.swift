@@ -16,20 +16,26 @@ class HeaderCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblYear: UILabel!
     @IBOutlet weak var lblAgeLimit: UILabel!
+    @IBOutlet weak var scoreBgView: ScoreView!
     @IBOutlet weak var scoreView: ScoreView!
     @IBOutlet weak var voteAvrgLabel: UILabel!
     
+    let generalTime: Double = 2
+    var temp: Double = 2
     var timer: Timer!
     private let animationFadeInDuration: TimeInterval = 0.3
     
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.startTimer()
+    deinit {
+        self.timer.invalidate()
     }
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.timer.invalidate()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -40,11 +46,10 @@ class HeaderCell: UITableViewCell {
         self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.updateScoreView), userInfo: nil, repeats: true)
     }
     
+    
     func updateScoreView() {
-        let generalTime: Double = 2
-        var temp: Double = 2
-        temp = temp - 0.5
-        self.scoreView.progress = CGFloat(Double(1 - temp / generalTime))
+        self.temp = self.temp - 0.01
+        self.scoreView.progress = CGFloat(1 - temp / generalTime)
         if temp < 0 {
             self.timer.invalidate()
         }
@@ -53,6 +58,18 @@ class HeaderCell: UITableViewCell {
     var item: MTMovieDetails! {
         didSet {
             self.setInfo()
+            
+            self.scoreBgView.color = UIColor.gray
+            self.scoreBgView.progress = 1
+            self.scoreView.color = UIColor.green
+            
+//            self.scoreBgView.color = UIColor.green
+//            self.scoreView.color = UIColor.red
+
+//            self.scoreBgView.color = UIColor.green
+//            self.scoreView.color = UIColor.red
+            
+            self.startTimer()
         }
     }
     

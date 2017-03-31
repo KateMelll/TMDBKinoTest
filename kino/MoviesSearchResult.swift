@@ -57,9 +57,11 @@ class MTRelease: Mappable {
 
 class MTCastResponse: Mappable {
     var cast: [MTActors] = []
+    var crew: [MTDirectors] = []
     required init?(map: Map) { }
     func mapping(map: Map) {
         cast                    <- map["cast"]
+        crew                    <- map["crew"]
     }
 }
 
@@ -68,7 +70,17 @@ class MTActors: Mappable {
     var profile_path: String!
     required init?(map: Map) { }
     func mapping(map: Map) {
-        name               <- map["name"]
+        name                    <- map["name"]
         profile_path            <- map["profile_path"]
+    }
+}
+
+class MTDirectors: Mappable {
+    var job: String!
+    var name: String!
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        job                     <- map["job"]
+        name                    <- map["name"]
     }
 }

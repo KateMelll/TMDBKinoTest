@@ -113,8 +113,8 @@ class MovieDetailsTableViewController: UITableViewController {
         let request = MTMovieCastRequest(id: self.movie.id!)
         MTNetwork.makeRequest(request: request) { (response: MTCastResponse?, error: Error?) in
             if let response = response {
-                for cast in response.cast {
-                    print("cast \(cast.name), \(cast.profile_path)")
+                for item in response.crew {
+                    print(item.job)
                 }
             }
             else {

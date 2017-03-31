@@ -76,6 +76,9 @@ class MTMovieCastRequest: MTMoviesRequest {
     }
 }
 
+class MTMovieDirectorsRequest: MTMoviesRequest {
+    
+}
 
 struct ParamsKeys {
     static let sorting = "sort_by"
