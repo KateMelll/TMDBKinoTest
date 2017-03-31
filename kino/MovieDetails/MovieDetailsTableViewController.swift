@@ -53,7 +53,9 @@ class MovieDetailsTableViewController: UITableViewController {
                     else {
                         print("Could not unwrap optional MTMovieDetails")
                     }
-                    self.tableView.reloadData()
+                    DispatchQueue.main.async(execute: {
+                        self.tableView.reloadData()
+                    })
                 }
             }
             else {
