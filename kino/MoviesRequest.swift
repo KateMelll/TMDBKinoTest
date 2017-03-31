@@ -17,37 +17,67 @@ class MTMoviesRequest: MTBaseRequest {
     }
 }
 
-class MTPopularRequest: MTBaseRequest {
+class MTPopularRequest: MTMoviesRequest {
     
     override func url() -> String {
         return "movie/popular"
     }
-    
-    init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
-        super.init(parametes: params)
-    }
 }
 
-class MTUpcomingRequest: MTBaseRequest {
+class MTUpcomingRequest: MTMoviesRequest {
     
     override func url() -> String {
         return "movie/upcoming"
     }
-    
-    init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
-        super.init(parametes: params)
-    }
 }
 
-class MTTopRequest: MTBaseRequest {
+class MTTopRequest: MTMoviesRequest {
     
     override func url() -> String {
         return "movie/top_rated"
     }
+}
+
+class MTMovieDetailsRequest: MTMoviesRequest {
     
-    init(params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
-        super.init(parametes: params)
+    var id: Int!
+    override func url() -> String {
+        return "movie/\(self.id!)"
     }
+    
+    init(id: Int, params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+        self.id = id
+        super.init(params: params)
+        self.parametres.parametes!["append_to_response"] = "release_dates"
+    }
+}
+
+class MTMovieReleasesRequest: MTMoviesRequest {
+    
+    var id: Int!
+    override func url() -> String {
+        return "movie/\(self.id!)/release_dates"
+    }
+    init(id: Int, params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+        self.id = id
+        super.init(params: params)
+    }
+}
+
+class MTMovieCastRequest: MTMoviesRequest {
+    
+    var id: Int!
+    override func url() -> String {
+        return "movie/\(self.id!)/credits"
+    }
+    init(id: Int, params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+        self.id = id
+        super.init(params: params)
+    }
+}
+
+class MTMovieDirectorsRequest: MTMoviesRequest {
+    
 }
 
 struct ParamsKeys {
@@ -62,7 +92,6 @@ enum SortingType: String {
 class MTMoviesRequestParameters: MTBaseRequestParameters {
 
     var sorting = SortingType.popularityDesc
-    
     override init() {
         super.init()
         self.parametes?[ParamsKeys.sorting] = sorting.rawValue

@@ -18,3 +18,69 @@ class MTMoviesResponse: Mappable {
         results                 <- map["results"]
     }
 }
+//
+//class MTReleaseDateResponse: Mappable {
+//    var release_dates: [MTReleaseResponse]()
+//    required init?(map: Map) { }
+//    func mapping(map: Map) {
+//        release_dates           <- map["release_dates"]
+//    }
+//}
+
+class MTReleaseDateResultsResponse: Mappable {
+    var results: [MTReleaseResponse] = []
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        results                 <- map["results"]
+    }
+
+}
+
+class MTReleaseResponse: Mappable {
+    var iso: String!
+    var date: [MTRelease] = []
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        iso                     <- map["iso_3166_1"]
+        date                    <- map["release_dates"]
+    }
+
+}
+
+class MTRelease: Mappable {
+    var certification: String!
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        certification           <- map["certification"]
+    }
+}
+
+class MTCastResponse: Mappable {
+    var cast: [MTActors] = []
+    var crew: [MTDirectors] = []
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        cast                    <- map["cast"]
+        crew                    <- map["crew"]
+    }
+}
+
+class MTActors: Mappable {
+    var name: String!
+    var profile_path: String!
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        name                    <- map["name"]
+        profile_path            <- map["profile_path"]
+    }
+}
+
+class MTDirectors: Mappable {
+    var job: String!
+    var name: String!
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        job                     <- map["job"]
+        name                    <- map["name"]
+    }
+}

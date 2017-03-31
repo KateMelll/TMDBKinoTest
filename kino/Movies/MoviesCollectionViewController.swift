@@ -54,6 +54,13 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: MovieDetailsTableViewController.self) {
+            let destController = segue.destination as! MovieDetailsTableViewController
+            let ip = self.collectionView!.indexPathsForSelectedItems!.first!
+            print("IP = \(ip)")
+            destController.movie = self.item(at: ip)
+            
+        }
     }
 
     // MARK: UICollectionViewDataSource
