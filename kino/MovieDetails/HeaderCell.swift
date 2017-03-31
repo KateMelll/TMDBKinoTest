@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AlamofireImage
+import SDWebImage
 
 class HeaderCell: UITableViewCell {
 
@@ -16,8 +16,17 @@ class HeaderCell: UITableViewCell {
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblYear: UILabel!
     @IBOutlet weak var lblAgeLimit: UILabel!
+    @IBOutlet weak var scoreView: ScoreView!
+    @IBOutlet weak var voteAvrgLabel: UILabel!
     
+    var timer: Timer!
     private let animationFadeInDuration: TimeInterval = 0.3
+    
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.startTimer()
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,6 +36,20 @@ class HeaderCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func startTimer() {
+        self.timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.updateScoreView), userInfo: nil, repeats: true)
+    }
+    
+    func updateScoreView() {
+        let generalTime: Double = 2
+        var temp: Double = 2
+        temp = temp - 0.5
+        self.scoreView.progress = CGFloat(Double(1 - temp / generalTime))
+        if temp < 0 {
+            self.timer.invalidate()
+        }
+    }
+    
     var item: MTMovieDetails! {
         didSet {
             self.setInfo()
@@ -34,50 +57,20 @@ class HeaderCell: UITableViewCell {
     }
     
     private func setInfo() {
-        self.setImage(self.item.poster_path, left: false)
-//        self.posterView.af_setImage(withURL: url!)
+        let url = URL(string: Constants.Server.imagesRootPath() + self.item.poster_path)
+        self.posterView.sd_setImage(with: url)
         self.lblTitle.text = self.item.title
-        self.setBackImage(self.item.backdrop_path, left: false)
-//        self.lblYear.text = self.item.
+        let backUrl = URL(string: Constants.Server.imagesRootPath() + self.item.backdrop_path)
+        self.backdropView.sd_setImage(with: backUrl)
+        let voteAvrg = self.item.vote_average!
+        let score = (voteAvrg * 100) / 10
+        self.voteAvrgLabel.text = String(describing: Int(score))
+        let year = self.getYear(from: self.item.release_date)
+        self.lblYear.text = year
     }
 
-    private func setImage(_ urlPathString: String?, left: Bool) {
-        
-        guard urlPathString != nil else {
-            return
-        }
-        
-        if let url = URL(string: Constants.Server.imagesRootPath() + urlPathString!) {
-            
-        imageView?.af_setImage(withURL: url,
-                               placeholderImage: nil,
-                               filter: nil,
-                               progress: nil,
-                               progressQueue: DispatchQueue.main,
-                               imageTransition: UIImageView.ImageTransition.crossDissolve(animationFadeInDuration),
-                               runImageTransitionIfCached: true,
-                               completion: nil)
-        }
+    func getYear(from date: String) -> String {
+        return date.components(separatedBy: "-").first!
     }
-
     
-    private func setBackImage(_ urlPathString: String?, left: Bool) {
-        
-        guard urlPathString != nil else {
-            return
-        }
-        
-        if let url = URL(string: Constants.Server.imagesRootPath() + urlPathString!) {
-            
-            imageView?.af_setImage(withURL: url,
-                                   placeholderImage: nil,
-                                   filter: nil,
-                                   progress: nil,
-                                   progressQueue: DispatchQueue.main,
-                                   imageTransition: UIImageView.ImageTransition.crossDissolve(animationFadeInDuration),
-                                   runImageTransitionIfCached: true,
-                                   completion: nil)
-        }
-    }
-
 }

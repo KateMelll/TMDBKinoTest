@@ -41,13 +41,18 @@ class AboutFilmCell: UITableViewCell {
         self.titleLabel.text = self.item.original_title
         self.statusLabel.text = self.item.status
         self.originalLangLabel.text = self.item.original_title
-        self.runtimeLabel.text = String(describing:self.item.runtime)
-        self.budgetLabel.text = String(describing:self.item.budget)
-        self.revenuelabel.text = String(describing:self.item.revenue)
+        self.budgetLabel.text = "\(self.item.budget!)"
+        self.revenuelabel.text = "\(self.item.revenue!)"
         self.homepagelabel.text = self.item.homepage
+        self.setCorrectRuntimeFormat()
     }
     
-    
+    private func setCorrectRuntimeFormat() {
+        let runtime = self.item.runtime!
+        let hour = runtime / 60
+        let min = runtime - (hour * 60)
+        self.runtimeLabel.text = "\(hour)h. \(min)min."
+    }
     
 
 

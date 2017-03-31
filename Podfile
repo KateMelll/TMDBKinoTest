@@ -7,6 +7,8 @@ target 'kino' do
     pod "Alamofire"
     pod "ObjectMapper"
     pod "AlamofireImage"
+    pod 'SDWebImage', '~> 4.0.0-beta2'
+    pod 'SwiftHexColor', '~> 0.1.1'
 
   # Pods for kino
 

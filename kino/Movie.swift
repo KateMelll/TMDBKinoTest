@@ -35,6 +35,8 @@ class MTMovieDetails: Mappable {
     var runtime: Int!
     var poster_path: String!
     var backdrop_path: String!
+    var vote_average: Float!
+    var release_date: String!
     
     required init?(map: Map) { }
     
@@ -50,6 +52,8 @@ class MTMovieDetails: Mappable {
         runtime         <- map["runtime"]
         poster_path     <- map["poster_path"]
         backdrop_path   <- map["backdrop_path"]
+        vote_average    <- map["vote_average"]
+        release_date    <- map["release_date"]
     }
 
 }
