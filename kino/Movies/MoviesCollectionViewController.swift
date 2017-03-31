@@ -16,8 +16,7 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     var refreshControl: UIRefreshControl!
     weak var moviesViewController: MoviesViewController!
     var mode: Mode!
-    var pagePopular = 1
-    var pageUpcoming = 1
+    var page = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,15 +26,8 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     }
 
     func loadMovies() {
-        switch self.mode! {
-        case .Popular:
-            self.pagePopular = 1
-        case .Upcoming:
-            self.pageUpcoming = 1
-        default:
-            print()
-        }
-        let request = self.request(for: self.mode)
+        self.page = 1
+        let request = self.request(for: self.mode, page: self.page)
         MTNetwork.makeRequest(request: request) { (response: MTMoviesResponse?, error: Error?) in
             if let response = response {
                 self.movies.removeAll()
@@ -46,7 +38,7 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
         }
     }
     
-    func request(for mode: Mode, page: Int = 1) -> MTBaseRequest {
+    func request(for mode: Mode, page: Int) -> MTBaseRequest {
         switch mode {
         case .Popular:
             return MTPopularRequest(page: page)
@@ -77,33 +69,14 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
 
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if self.movies.count <= indexPath.row {
-            
-            var page = 1
-            
-            switch self.mode! {
-            case .Popular:
-                page = self.pagePopular + 1
-            case .Upcoming:
-                page = self.pageUpcoming + 1
-            default:
-                print("")
-            }
-            
-            let request = self.request(for: self.mode, page: page)
+        
+            let request = self.request(for: self.mode, page: self.page + 1)
             
             MTNetwork.makeRequest(request: request) { (response: MTMoviesResponse?, error: Error?) in
                 if let response = response {
                     self.movies.append(contentsOf: response.results)
                     self.collectionView!.reloadData()
-                    
-                    switch self.mode! {
-                    case .Popular:
-                        self.pagePopular += 1
-                    case .Upcoming:
-                        self.pageUpcoming += 1
-                    default:
-                        print("")
-                    }
+                    self.page += 1
                 }
             }
 
