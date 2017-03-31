@@ -552,13 +552,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RE1-De-Bh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2013.5999999999999" y="1356.521739130435"/>
+            <point key="canvasLocation" x="2014" y="1447"/>
         </scene>
         <!--Movies Collection View Controller-->
         <scene sceneID="EiY-QE-naX">
             <objects>
                 <collectionViewController id="wXQ-LM-PLL" customClass="MoviesCollectionViewController" customModule="kino" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="qYE-Ap-aqC">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qYE-Ap-aqC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

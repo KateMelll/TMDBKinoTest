@@ -25,6 +25,7 @@ class MoviesViewController: UIViewController {
     func segmentChanged(sender: UISegmentedControl) {
         self.updateTitle()
         self.updateMode()
+        self.collectionViewController.collectionView?.scrollToItem(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
     }
 
     func updateTitle() {
