@@ -76,13 +76,19 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.movies.count
+        return self.movies.count + 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MoviesCollectionViewCell
-        cell.item = self.item(at: indexPath)
-        return cell
+        if self.movies.count > indexPath.row {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MoviesCollectionViewCell
+            cell.item = self.item(at: indexPath)
+            return cell
+        } else {
+            print("Out of self.moview")
+            let loadCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Load", for: indexPath)
+            return loadCell
+        }
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout
