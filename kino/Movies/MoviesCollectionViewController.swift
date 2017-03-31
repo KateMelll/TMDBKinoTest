@@ -75,6 +75,29 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
 
     // MARK: UICollectionViewDataSource
 
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if self.movies.count <= indexPath.row {
+            switch self.mode! {
+            case .Popular:
+                self.pagePopular += 1
+                
+
+            case .Upcoming:
+                self.pageUpcoming += 1
+            default:
+                print("")
+            }
+            let request = self.request(for: self.mode)
+            MTNetwork.makeRequest(request: request) { (response: MTMoviesResponse?, error: Error?) in
+                if let response = response {
+                    self.movies.append(contentsOf: response.results)
+                    self.collectionView!.reloadData()
+                }
+            }
+
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.movies.count + 1
     }
