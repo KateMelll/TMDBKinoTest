@@ -22,12 +22,20 @@ class MTPopularRequest: MTMoviesRequest {
     override func url() -> String {
         return "movie/popular"
     }
+    init(page: Int) {
+        super.init()
+        self.parametres.parametes!["page"] = page
+    }
 }
 
 class MTUpcomingRequest: MTMoviesRequest {
     
     override func url() -> String {
         return "movie/upcoming"
+    }
+    init(page: Int) {
+        super.init()
+        self.parametres.parametes!["page"] = page
     }
 }
 
@@ -45,9 +53,9 @@ class MTMovieDetailsRequest: MTMoviesRequest {
         return "movie/\(self.id!)"
     }
     
-    init(id: Int, params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+    init(id: Int) {
         self.id = id
-        super.init(params: params)
+        super.init()
         self.parametres.parametes!["append_to_response"] = "release_dates"
     }
 }
@@ -58,9 +66,9 @@ class MTMovieReleasesRequest: MTMoviesRequest {
     override func url() -> String {
         return "movie/\(self.id!)/release_dates"
     }
-    init(id: Int, params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+    init(id: Int) {
         self.id = id
-        super.init(params: params)
+        super.init()
     }
 }
 
@@ -70,9 +78,9 @@ class MTMovieCastRequest: MTMoviesRequest {
     override func url() -> String {
         return "movie/\(self.id!)/credits"
     }
-    init(id: Int, params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+    init(id: Int) {
         self.id = id
-        super.init(params: params)
+        super.init()
     }
 }
 

@@ -592,6 +592,23 @@
                                     <segue destination="2WP-9W-QO1" kind="show" identifier="MovieDetailsTableViewController" id="LME-zN-9cq"/>
                                 </connections>
                             </collectionViewCell>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Load" id="WD8-8b-NkS" customClass="MoviesCollectionViewCell" customModule="kino" customModuleProvider="target">
+                                <rect key="frame" x="21" y="0.0" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="5gM-OK-QnW">
+                                            <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="5gM-OK-QnW" firstAttribute="centerX" secondItem="WD8-8b-NkS" secondAttribute="centerX" id="OsL-E2-6iu"/>
+                                    <constraint firstItem="5gM-OK-QnW" firstAttribute="centerY" secondItem="WD8-8b-NkS" secondAttribute="centerY" id="fCl-LZ-2q1"/>
+                                </constraints>
+                            </collectionViewCell>
                         </cells>
                         <connections>
                             <outlet property="dataSource" destination="wXQ-LM-PLL" id="Zcn-Mf-q1i"/>

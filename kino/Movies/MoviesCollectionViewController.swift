@@ -16,6 +16,7 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     var refreshControl: UIRefreshControl!
     weak var moviesViewController: MoviesViewController!
     var mode: Mode!
+    var page = 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,8 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
     }
 
     func loadMovies() {
-        let request = self.request(for: self.mode)
+        self.page = 1
+        let request = self.request(for: self.mode, page: self.page)
         MTNetwork.makeRequest(request: request) { (response: MTMoviesResponse?, error: Error?) in
             if let response = response {
                 self.movies.removeAll()
@@ -36,12 +38,12 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
         }
     }
     
-    func request(for mode: Mode) -> MTBaseRequest {
+    func request(for mode: Mode, page: Int) -> MTBaseRequest {
         switch mode {
         case .Popular:
-            return MTPopularRequest()
+            return MTPopularRequest(page: page)
         case .Upcoming:
-            return MTUpcomingRequest()
+            return MTUpcomingRequest(page: page)
         default:
             return MTTopRequest()
         }
@@ -65,14 +67,36 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
 
     // MARK: UICollectionViewDataSource
 
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if self.movies.count <= indexPath.row {
+        
+            let request = self.request(for: self.mode, page: self.page + 1)
+            
+            MTNetwork.makeRequest(request: request) { (response: MTMoviesResponse?, error: Error?) in
+                if let response = response {
+                    self.movies.append(contentsOf: response.results)
+                    self.collectionView!.reloadData()
+                    self.page += 1
+                }
+            }
+
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.movies.count
+        return self.movies.count + 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MoviesCollectionViewCell
-        cell.item = self.item(at: indexPath)
-        return cell
+        if self.movies.count > indexPath.row {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MoviesCollectionViewCell
+            cell.item = self.item(at: indexPath)
+            return cell
+        } else {
+            print("Out of self.moview")
+            let loadCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Load", for: indexPath)
+            return loadCell
+        }
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout
