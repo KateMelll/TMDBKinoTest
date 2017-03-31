@@ -41,7 +41,6 @@ class MTTopRequest: MTMoviesRequest {
 class MTMovieDetailsRequest: MTMoviesRequest {
     
     var id: Int!
-    
     override func url() -> String {
         return "movie/\(self.id!)"
     }
@@ -56,7 +55,6 @@ class MTMovieDetailsRequest: MTMoviesRequest {
 class MTMovieReleasesRequest: MTMoviesRequest {
     
     var id: Int!
-    
     override func url() -> String {
         return "movie/\(self.id!)/release_dates"
     }
@@ -65,6 +63,19 @@ class MTMovieReleasesRequest: MTMoviesRequest {
         super.init(params: params)
     }
 }
+
+class MTMovieCastRequest: MTMoviesRequest {
+    
+    var id: Int!
+    override func url() -> String {
+        return "movie/\(self.id!)/credits"
+    }
+    init(id: Int, params: MTMoviesRequestParameters = MTMoviesRequestParameters()) {
+        self.id = id
+        super.init(params: params)
+    }
+}
+
 
 struct ParamsKeys {
     static let sorting = "sort_by"
@@ -78,7 +89,6 @@ enum SortingType: String {
 class MTMoviesRequestParameters: MTBaseRequestParameters {
 
     var sorting = SortingType.popularityDesc
-    
     override init() {
         super.init()
         self.parametes?[ParamsKeys.sorting] = sorting.rawValue

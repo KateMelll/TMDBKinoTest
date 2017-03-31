@@ -51,7 +51,7 @@ class AboutFilmCell: UITableViewCell {
         let runtime = self.item.runtime!
         let hour = runtime / 60
         let min = runtime - (hour * 60)
-        self.runtimeLabel.text = "\(hour)h. \(min)min."
+        self.runtimeLabel.text = "\(hour)h \(min)min"
     }
     
 

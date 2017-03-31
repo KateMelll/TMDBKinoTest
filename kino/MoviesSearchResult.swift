@@ -53,5 +53,22 @@ class MTRelease: Mappable {
     func mapping(map: Map) {
         certification           <- map["certification"]
     }
+}
 
+class MTCastResponse: Mappable {
+    var cast: [MTActors] = []
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        cast                    <- map["cast"]
+    }
+}
+
+class MTActors: Mappable {
+    var name: String!
+    var profile_path: String!
+    required init?(map: Map) { }
+    func mapping(map: Map) {
+        name               <- map["name"]
+        profile_path            <- map["profile_path"]
+    }
 }
