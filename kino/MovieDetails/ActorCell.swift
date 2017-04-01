@@ -24,14 +24,8 @@ class ActorCell: UITableViewCell {
 
     var item: MTCastResponse! {
         didSet {
-            self.setInfo()
             self.actorsController.actors = self.item.cast
             self.actorsController.collectionView!.reloadData()
         }
     }
-    
-    private func setInfo() {
-    }
-    
-
 }

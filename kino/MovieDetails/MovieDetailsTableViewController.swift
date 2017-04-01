@@ -101,7 +101,7 @@ class MovieDetailsTableViewController: UITableViewController {
         }
         if indexPath.row == Cell.Author.rawValue {
             let authorCell = tableView.dequeueReusableCell(withIdentifier: String(describing: AuthorCell.self), for: indexPath) as! AuthorCell
-            authorCell.item = self.movieDetails!
+            authorCell.item = self.movieCastResponse!
             return authorCell
         }
         if indexPath.row == Cell.Actor.rawValue {
