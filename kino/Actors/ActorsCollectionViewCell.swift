@@ -22,9 +22,12 @@ class ActorsCollectionViewCell: UICollectionViewCell {
     }
     
     private func setInfo() {
-        if let profile_path = self.item.profile_path {
-            self.actorImageView.sd_setImage(with: URL(string: profile_path))
+        if let _ = self.item.profile_path {
+            self.actorImageView.sd_setImage(with: URL(string: Constants.Server.imagesRootPath() + self.item.profile_path), placeholderImage: UIImage(named: "Placeholder"))
         }
+        self.actorImageView.layer.borderColor = UIColor.white.cgColor
+        self.actorImageView.layer.borderWidth = 2
+        self.actorImageView.layer.cornerRadius = self.actorImageView.frame.width / 2
         self.actorNameLabel.text = self.item.name
         self.characterLabel.text = self.item.character
     }
