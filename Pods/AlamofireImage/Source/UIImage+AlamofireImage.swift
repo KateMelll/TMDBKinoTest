@@ -275,7 +275,6 @@ import CoreImage
 
 // MARK: - Core Image Filters
 
-@available(iOS 9.0, *)
 extension UIImage {
     /// Returns a new version of the image using a CoreImage filter with the specified name and parameters.
     ///

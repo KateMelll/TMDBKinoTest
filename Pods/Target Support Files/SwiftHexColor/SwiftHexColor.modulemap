@@ -1,0 +1,6 @@
+framework module SwiftHexColor {
+  umbrella header "SwiftHexColor-umbrella.h"
+
+  export *
+  module * { export * }
+}
