@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="1fC-PH-KhC">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Directors Collection View Controller-->
+        <scene sceneID="iLq-wN-dfO">
+            <objects>
+                <collectionViewController storyboardIdentifier="DirectorsCollectionViewController" id="1fC-PH-KhC" customClass="DirectorsCollectionViewController" customModule="kino" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="5BL-VX-KME">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="yaL-T9-JP3">
+                            <size key="itemSize" width="125" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DirectorCell" id="vnb-gC-Txr" customClass="DirectorsCollectionViewCell" customModule="kino" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V1f-2F-jkn" userLabel="Content View">
+                                            <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Andrew Kor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13L-1D-rjW">
+                                                    <rect key="frame" x="8" y="8" width="109" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Sz-n5-Imj">
+                                                    <rect key="frame" x="8" y="24" width="109" height="16"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="9Sz-n5-Imj" secondAttribute="bottom" constant="4" id="05h-to-EGg"/>
+                                                <constraint firstAttribute="height" constant="50" id="BlE-yT-dvz"/>
+                                                <constraint firstAttribute="trailing" secondItem="9Sz-n5-Imj" secondAttribute="trailing" constant="8" id="SQT-u0-YUu"/>
+                                                <constraint firstItem="9Sz-n5-Imj" firstAttribute="top" secondItem="13L-1D-rjW" secondAttribute="bottom" id="dbi-ka-xre"/>
+                                                <constraint firstItem="13L-1D-rjW" firstAttribute="leading" secondItem="V1f-2F-jkn" secondAttribute="leading" constant="8" id="m7q-4P-bjK"/>
+                                                <constraint firstItem="13L-1D-rjW" firstAttribute="top" secondItem="V1f-2F-jkn" secondAttribute="top" constant="8" id="teJ-bm-MIf"/>
+                                                <constraint firstAttribute="trailing" secondItem="13L-1D-rjW" secondAttribute="trailing" constant="8" id="xV4-JU-iJO"/>
+                                                <constraint firstItem="9Sz-n5-Imj" firstAttribute="leading" secondItem="V1f-2F-jkn" secondAttribute="leading" constant="8" id="zYp-dC-Lku"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="V1f-2F-jkn" secondAttribute="bottom" id="07I-V2-C53"/>
+                                    <constraint firstItem="V1f-2F-jkn" firstAttribute="top" secondItem="vnb-gC-Txr" secondAttribute="top" id="126-SA-PR7"/>
+                                    <constraint firstItem="V1f-2F-jkn" firstAttribute="leading" secondItem="vnb-gC-Txr" secondAttribute="leading" id="Lji-CZ-bWs"/>
+                                    <constraint firstAttribute="trailing" secondItem="V1f-2F-jkn" secondAttribute="trailing" id="SVI-TG-Fb8"/>
+                                </constraints>
+                                <size key="customSize" width="125" height="50"/>
+                                <connections>
+                                    <outlet property="jobLabel" destination="9Sz-n5-Imj" id="LJa-Qn-BMj"/>
+                                    <outlet property="nameLabel" destination="13L-1D-rjW" id="B5i-1a-a8i"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="1fC-PH-KhC" id="q0U-Yf-9oN"/>
+                            <outlet property="delegate" destination="1fC-PH-KhC" id="eLq-DG-7nB"/>
+                        </connections>
+                    </collectionView>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="50"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gcp-HB-tPg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="688.79999999999995" y="187.1064467766117"/>
+        </scene>
+    </scenes>
+</document>

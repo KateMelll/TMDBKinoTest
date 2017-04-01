@@ -23,15 +23,14 @@ class MovieDetailsTableViewController: UITableViewController {
 
     var movie: MTMovie!
     var movieDetails: MTMovieDetails!
+    var movieCastResponse: MTCastResponse!
 
     private let animationFadeInDuration: TimeInterval = 0.3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureController()
-        self.loadDetails()
-        self.loadActors()
-        
+        self.loadDetails()        
     }
     
     func loadDetails() {
@@ -52,9 +51,18 @@ class MovieDetailsTableViewController: UITableViewController {
                     else {
                         print("Could not unwrap optional MTMovieDetails")
                     }
-                    DispatchQueue.main.async(execute: {
+                    
+                    let request = MTMovieCastRequest(id: self.movie.id!)
+                    MTNetwork.makeRequest(request: request) { (response: MTCastResponse?, error: Error?) in
+                        if let response = response {
+                            self.movieCastResponse = response
+                        }
+                        else {
+                            print("Could not unwrap optional MTMovieDetails")
+                        }
                         self.tableView.reloadData()
-                    })
+                        
+                    }
                 }
             }
             else {
@@ -93,12 +101,12 @@ class MovieDetailsTableViewController: UITableViewController {
         }
         if indexPath.row == Cell.Author.rawValue {
             let authorCell = tableView.dequeueReusableCell(withIdentifier: String(describing: AuthorCell.self), for: indexPath) as! AuthorCell
-            authorCell.item = self.movieDetails!
+            authorCell.item = self.movieCastResponse!
             return authorCell
         }
         if indexPath.row == Cell.Actor.rawValue {
             let actorCell = tableView.dequeueReusableCell(withIdentifier: String(describing: ActorCell.self), for: indexPath) as! ActorCell
-            actorCell.item = self.movieDetails!
+            actorCell.item = self.movieCastResponse!
             return actorCell
         }
         else {
@@ -109,21 +117,6 @@ class MovieDetailsTableViewController: UITableViewController {
         }
     
     // MARK: - Other
-    
-    func loadActors() {
-        let request = MTMovieCastRequest(id: self.movie.id!)
-        MTNetwork.makeRequest(request: request) { (response: MTCastResponse?, error: Error?) in
-            if let response = response {
-                for item in response.crew {
-                    print(item.job)
-                }
-            }
-            else {
-                print("Could not unwrap optional MTMovieDetails")
-            }
-            self.tableView.reloadData()
-        }
-    }
 
 }
 

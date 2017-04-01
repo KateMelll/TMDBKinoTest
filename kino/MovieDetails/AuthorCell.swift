@@ -10,44 +10,22 @@ import UIKit
 
 class AuthorCell: UITableViewCell {
 
-    private let animationFadeInDuration: TimeInterval = 0.3
-
+    @IBOutlet weak var directorsView: UIView!
+    var directorsController: DirectorsCollectionViewController!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        let collectionController = UIStoryboard(name: "Crew", bundle: Bundle.main).instantiateViewController(withIdentifier: "DirectorsCollectionViewController") as! DirectorsCollectionViewController
+        self.directorsController = collectionController
+        collectionController.view.frame = self.directorsView.bounds
+        self.directorsView.addSubview(collectionController.view)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-
-    var item: MTMovieDetails! {
+    var item: MTCastResponse! {
         didSet {
-            self.setInfo()
+            self.directorsController.directors = self.item.crew
+            self.directorsController.collectionView?.reloadData()
         }
     }
-    private func setInfo() {
-    }
-    
-    private func setImage(_ urlPathString: String?, left: Bool) {
-        
-        guard urlPathString != nil else {
-            return
-        }
-        
-        if let url = URL(string: Constants.Server.imagesRootPath() + urlPathString!) {
-            
-            imageView?.af_setImage(withURL: url,
-                                   placeholderImage: nil,
-                                   filter: nil,
-                                   progress: nil,
-                                   progressQueue: DispatchQueue.main,
-                                   imageTransition: UIImageView.ImageTransition.crossDissolve(animationFadeInDuration),
-                                   runImageTransitionIfCached: true,
-                                   completion: nil)
-        }
-    }
-    
-
-    
     
 }
