@@ -20,6 +20,7 @@ class MoviesViewController: UIViewController {
         self.updateTitle()
         self.updateMode()
         self.segmentedCotrlView.addTarget(self, action: #selector(self.segmentChanged), for: .valueChanged)
+        self.segmentedCotrlView.backgroundColor = .white
     }
 
     func segmentChanged(sender: UISegmentedControl) {
