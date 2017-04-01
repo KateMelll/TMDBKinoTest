@@ -10,46 +10,27 @@ import UIKit
 
 class ActorCell: UITableViewCell {
 
-    private let animationFadeInDuration: TimeInterval = 0.3
-    
+    @IBOutlet weak var actorsView: UIView!
+    var actorsController: ActorsCollectionViewController!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        let collectionController = UIStoryboard(name: "Actors", bundle: Bundle.main).instantiateViewController(withIdentifier: "ActorsCollectionViewController") as! ActorsCollectionViewController
+        self.actorsController = collectionController
+        collectionController.view.frame = self.actorsView.bounds
+        self.actorsView.addSubview(collectionController.view)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-    }
-
-    var item: MTMovieDetails! {
+    var item: MTCastResponse! {
         didSet {
             self.setInfo()
+            self.actorsController.actors = self.item.cast
+            self.actorsController.collectionView!.reloadData()
         }
     }
-    
     
     private func setInfo() {
-    }
-    
-    private func setImage(_ urlPathString: String?, left: Bool) {
-        
-        guard urlPathString != nil else {
-            return
-        }
-        
-        if let url = URL(string: Constants.Server.imagesRootPath() + urlPathString!) {
-            
-            imageView?.af_setImage(withURL: url,
-                                   placeholderImage: nil,
-                                   filter: nil,
-                                   progress: nil,
-                                   progressQueue: DispatchQueue.main,
-                                   imageTransition: UIImageView.ImageTransition.crossDissolve(animationFadeInDuration),
-                                   runImageTransitionIfCached: true,
-                                   completion: nil)
-        }
     }
     
 

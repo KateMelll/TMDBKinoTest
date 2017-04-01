@@ -67,6 +67,10 @@
                                     <constraint firstAttribute="trailing" secondItem="V1f-2F-jkn" secondAttribute="trailing" id="wfa-83-R07"/>
                                 </constraints>
                                 <size key="customSize" width="125" height="50"/>
+                                <connections>
+                                    <outlet property="jobLabel" destination="9Sz-n5-Imj" id="LJa-Qn-BMj"/>
+                                    <outlet property="nameLabel" destination="13L-1D-rjW" id="B5i-1a-a8i"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>

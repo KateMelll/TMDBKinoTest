@@ -65,7 +65,6 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
         if segue.identifier == String(describing: MovieDetailsTableViewController.self) {
             let destController = segue.destination as! MovieDetailsTableViewController
             let ip = self.collectionView!.indexPathsForSelectedItems!.first!
-            print("IP = \(ip)")
             destController.movie = self.item(at: ip)
             
         }
@@ -103,50 +102,16 @@ class MoviesCollectionViewController: UICollectionViewController, UICollectionVi
             cell.item = self.item(at: indexPath)
             return cell
         } else {
-            print("Out of self.moview")
             let loadCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Load", for: indexPath)
             return loadCell
         }
     }
 
     // MARK: - UICollectionViewDelegateFlowLayout
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        guard let cv = self.collectionView else {
-            return CGSize.zero
-        }
-        let width = CGFloat(cv.bounds.size.width / 2)
+        let width = CGFloat(collectionView.bounds.size.width / 2)
         let height = CGFloat(3 * width / 2)
         return CGSize(width: width, height: height)
     }
-    
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }

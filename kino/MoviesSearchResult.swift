@@ -68,10 +68,12 @@ class MTCastResponse: Mappable {
 class MTActors: Mappable {
     var name: String!
     var profile_path: String!
+    var character: String!
     required init?(map: Map) { }
     func mapping(map: Map) {
         name                    <- map["name"]
         profile_path            <- map["profile_path"]
+        character               <- map["character"]
     }
 }
 

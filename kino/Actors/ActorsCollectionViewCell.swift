@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ActorsCollectionViewCell: UICollectionViewCell {
     
@@ -14,4 +15,17 @@ class ActorsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var actorNameLabel: UILabel!
     @IBOutlet weak var characterLabel: UILabel!
     
+    var item: MTActors! {
+        didSet {
+            self.setInfo()
+        }
+    }
+    
+    private func setInfo() {
+        if let profile_path = self.item.profile_path {
+            self.actorImageView.sd_setImage(with: URL(string: profile_path))
+        }
+        self.actorNameLabel.text = self.item.name
+        self.characterLabel.text = self.item.character
+    }
 }

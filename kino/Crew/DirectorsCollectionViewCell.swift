@@ -10,4 +10,8 @@ import UIKit
 
 class DirectorsCollectionViewCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var jobLabel: UILabel!
+
 }

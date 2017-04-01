@@ -351,15 +351,15 @@
                                     <outlet property="overviewLabel" destination="MlU-b0-dQd" id="dj2-v0-TIc"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AuthorCell" rowHeight="100" id="NDH-x2-hhi" customClass="AuthorCell" customModule="kino" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="392" width="375" height="100"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AuthorCell" rowHeight="131" id="NDH-x2-hhi" customClass="AuthorCell" customModule="kino" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="392" width="375" height="131"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NDH-x2-hhi" id="3bB-n5-QiE">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMR-RV-651">
-                                            <rect key="frame" x="16" y="16" width="66" height="21"/>
+                                            <rect key="frame" x="16" y="16" width="66" height="20.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -372,17 +372,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActorCell" rowHeight="100" id="P8z-aR-FiF" customClass="ActorCell" customModule="kino" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="492" width="375" height="100"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P8z-aR-FiF" id="agC-Gx-Kgo">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutFilmCell" rowHeight="704" id="CuD-Tm-6hQ" customClass="AboutFilmCell" customModule="kino" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="592" width="375" height="704"/>
+                                <rect key="frame" x="0.0" y="523" width="375" height="704"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CuD-Tm-6hQ" id="UB2-T4-4eC">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="704"/>
@@ -541,6 +532,33 @@
                                     <outlet property="titleLabel" destination="AYm-RS-KJZ" id="C6l-as-IXT"/>
                                 </connections>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActorCell" rowHeight="100" id="P8z-aR-FiF" customClass="ActorCell" customModule="kino" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="1227" width="375" height="100"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P8z-aR-FiF" id="agC-Gx-Kgo">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GEX-0K-aJn">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="100" id="0fQ-BG-OKS"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="GEX-0K-aJn" secondAttribute="bottom" id="KgC-SD-65H"/>
+                                        <constraint firstItem="GEX-0K-aJn" firstAttribute="top" secondItem="agC-Gx-Kgo" secondAttribute="top" id="bTu-1O-3d0"/>
+                                        <constraint firstItem="GEX-0K-aJn" firstAttribute="leading" secondItem="agC-Gx-Kgo" secondAttribute="leading" id="bcG-Tv-UHT"/>
+                                        <constraint firstAttribute="trailing" secondItem="GEX-0K-aJn" secondAttribute="trailing" id="bpu-he-ycj"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="actorsView" destination="GEX-0K-aJn" id="8R9-UG-oAm"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="2WP-9W-QO1" id="MQX-UQ-A03"/>
@@ -552,7 +570,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RE1-De-Bh4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2013.5999999999999" y="1446.4767616191905"/>
+            <point key="canvasLocation" x="2013.5999999999999" y="1548.1259370314845"/>
         </scene>
         <!--Movies Collection View Controller-->
         <scene sceneID="EiY-QE-naX">
@@ -619,36 +637,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZTg-Kn-R60" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2014" y="534"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="h1v-Ew-9gS">
-            <objects>
-                <viewController id="9hH-fW-UVr" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Itm-4d-Sy1"/>
-                        <viewControllerLayoutGuide type="bottom" id="7LJ-uS-j7T"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="cbV-FE-8Ng">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zpz-zG-B1k">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.97343605759999996" green="0.38369259239999998" blue="0.38572835919999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Zpz-zG-B1k" secondAttribute="bottom" id="JB7-ZB-u5f"/>
-                            <constraint firstAttribute="trailing" secondItem="Zpz-zG-B1k" secondAttribute="trailing" id="YF3-gG-I8S"/>
-                            <constraint firstItem="Zpz-zG-B1k" firstAttribute="top" secondItem="cbV-FE-8Ng" secondAttribute="top" id="pwJ-iJ-sfp"/>
-                            <constraint firstItem="Zpz-zG-B1k" firstAttribute="leading" secondItem="cbV-FE-8Ng" secondAttribute="leading" id="uBB-y8-44O"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vod-vY-rkm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2961" y="1340"/>
         </scene>
     </scenes>
 </document>
