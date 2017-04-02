@@ -16,13 +16,6 @@ class PlotCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     var item: MTMovieDetails! {
@@ -34,6 +27,4 @@ class PlotCell: UITableViewCell {
     private func setInfo() {
         self.overviewLabel.text = self.item.overview
     }
-    
-    
 }

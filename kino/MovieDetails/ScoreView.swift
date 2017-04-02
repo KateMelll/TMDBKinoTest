@@ -30,5 +30,4 @@ class ScoreView: UIView {
         self.color.setStroke()
         path.stroke()
     }
-
 }

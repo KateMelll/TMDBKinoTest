@@ -2,7 +2,7 @@
 //  ActorsCollectionViewCell.swift
 //  kino
 //
-//  Created by K on 01/04/2017.
+//  Created by Kate on 01/04/2017.
 //  Copyright © 2017 Admin. All rights reserved.
 //
 

@@ -21,7 +21,6 @@ class ActorCell: UITableViewCell {
         self.actorsView.addSubview(collectionController.view)
     }
 
-
     var item: MTCastResponse! {
         didSet {
             self.actorsController.actors = self.item.cast

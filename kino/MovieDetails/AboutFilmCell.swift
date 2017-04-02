@@ -22,13 +22,6 @@ class AboutFilmCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     var item: MTMovieDetails! {
@@ -53,7 +46,4 @@ class AboutFilmCell: UITableViewCell {
         let min = runtime - (hour * 60)
         self.runtimeLabel.text = "\(hour)h \(min)min"
     }
-    
-
-
 }
