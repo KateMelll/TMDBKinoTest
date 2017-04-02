@@ -58,6 +58,7 @@ class HeaderCell: UITableViewCell {
     
     var item: MTMovieDetails! {
         didSet {
+            self.posterView.frame = CGRect(x: 0, y: 0, width: 150, height: 170)
             self.setInfo()
             self.scoreBgView.progress = 1
             self.startTimer()
@@ -67,6 +68,9 @@ class HeaderCell: UITableViewCell {
     private func setInfo() {
         let url = URL(string: Constants.Server.imagesRootPath() + self.item.poster_path)
         self.posterView.sd_setImage(with: url)
+        UIView.animate(withDuration: 0.20) {
+            self.posterView.frame = CGRect(x: 0, y: 0, width: 100, height: 128)
+        }
         self.lblTitle.text = self.item.title
         let backUrl = URL(string: Constants.Server.imagesRootPath() + self.item.backdrop_path)
         self.backdropView.sd_setImage(with: backUrl)

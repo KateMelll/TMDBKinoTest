@@ -30,7 +30,7 @@ class MovieDetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureController()
-        self.loadDetails()        
+        self.loadDetails()
     }
     
     func loadDetails() {
